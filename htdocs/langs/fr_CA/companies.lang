@@ -1,0 +1,6 @@
+# Dolibarr language file - en_US - companies
+VATIsUsed=Assujetti à la TPS
+VATIsNotUsed=Non assujetti à la TPS
+##### Local Taxes #####
+LocalTax1IsUsedES= Assujetti à TVQ
+LocalTax1IsNotUsedES= Non assujetti à TVQ
