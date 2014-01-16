@@ -458,7 +458,7 @@ function print_left_eldy_menu($db,$menu_array_before,$menu_array_after,&$tabMenu
 		{
 			$urllogo=DOL_URL_ROOT.'/viewimage.php?cache=1&amp;modulepart=companylogo&amp;file='.urlencode('thumbs/'.$mysoc->logo_mini);
 			print "\n".'<!-- Show logo on menu -->'."\n";
-			print '<div class="blockvmenuimpair">'."\n";
+			//print '<div class="blockvmenuimpair">'."\n";
 			print '<div class="menu_titre" id="menu_titre_logo"></div>';
 			print '<div class="menu_top" id="menu_top_logo"></div>';
 			print '<div class="menu_contenu" id="menu_contenu_logo">';
@@ -1364,10 +1364,11 @@ function print_left_eldy_menu($db,$menu_array_before,$menu_array_after,&$tabMenu
 					if (! strstr($menu_array[$i]['titre'],'<table')) print '<br>';
 					print '</div>'."\n";
 				}
+                                /*
 				else if ($showmenu)
 				{
 					print '<div class="menu_contenu">'.$tabstring.'<font class="vsmenudisabled vsmenudisabledmargin">'.$menu_array[$i]['titre'].'</font><br></div>'."\n";
-				}
+				}*/
 			}
 
 			// If next is a new block or if there is nothing after

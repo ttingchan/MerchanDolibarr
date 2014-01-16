@@ -149,74 +149,74 @@ if (empty($user->societe_id))
 	    DOL_DOCUMENT_ROOT."/product/class/service.class.php",
 	    DOL_DOCUMENT_ROOT."/comm/propal/class/propal.class.php",
 	    DOL_DOCUMENT_ROOT."/commande/class/commande.class.php",
-	    //DOL_DOCUMENT_ROOT."/compta/facture/class/facture.class.php",
-	    /*DOL_DOCUMENT_ROOT."/contrat/class/contrat.class.php"*/);
+	    DOL_DOCUMENT_ROOT."/compta/facture/class/facture.class.php",
+	    DOL_DOCUMENT_ROOT."/contrat/class/contrat.class.php");
 	    // Name class containing the method load_state_board for each line
 	    $classes=array('Client',
 	                   'Prospect',
-	                  // 'Fournisseur',
+	                   'Fournisseur',
 	                   'Adherent',
-	                   ////'Productss',
-	                   //'Service',
-					  // 'Propal',
-					//   'Commande',
-					 //  'Facture'/*,
-                       /* 'Contract'*/);
+	                   'Product',
+	                   'Service',
+					   'Propal',
+					   'Commande',
+					   'Facture',
+                        'Contract');
 	    // Cle array returned by the method load_state_board for each line
 	    $keys=array('customers',
 	                'prospects',
-	               // 'suppliers',
+	                'suppliers',
 	                'members',
-	                //pro////'productsss',
-	               // 'services',
+	                'products',
+	                'services',
 					'proposals',
-					//'orders',
-					'invoices'//,
-					/*'Contracts'*/);
+					'orders',
+					'invoices',
+					'Contracts');
 	    // Dashboard Icon lines
 	    $icons=array('company',
 	                 'company',
 	                 'company',
 	                 'user',
-	                 ////'productss',
-	                // 'service',
+	                 'productss',
+	                 'service',
 					 'propal',
-					// 'order',
+					 'order',
 					 'bill',
-					 /*'order'*/);
+					 'order');
 	    // Translation keyword
 	    $titres=array("ThirdPartyCustomersStats",
 	                  "ThirdPartyProspectsStats",
-	                 // "Suppliers",
+	                  "Suppliers",
 	                  "Members",
 	                  "Products",
-	                  //"Services",
+	                  "Services",
 	                  "CommercialProposalsShort",
-	                 // "CustomersOrders",
-	                  //"BillsCustomers",
+	                  "CustomersOrders",
+	                  "BillsCustomers",
 	                  "Contracts");
 	    // Dashboard Link lines
 	    $links=array(DOL_URL_ROOT.'/comm/list.php',
 	    DOL_URL_ROOT.'/comm/prospect/list.php',
-	    //DOL_URL_ROOT.'/fourn/liste.php',
+	    DOL_URL_ROOT.'/fourn/liste.php',
 	    DOL_URL_ROOT.'/adherents/liste.php?statut=1&mainmenu=members',
 	    DOL_URL_ROOT.'/product/liste.php?type=0&mainmenu=products',
 	    DOL_URL_ROOT.'/product/liste.php?type=1&mainmenu=products',
-	    //DOL_URL_ROOT.'/comm/propal/list.php?mainmenu=commercial',
-	    //DOL_URL_ROOT.'/commande/liste.php?mainmenu=commercial',
-	    DOL_URL_ROOT.'/compta/facture/list.php?mainmenu=accountancy'/*,
-	    DOL_URL_ROOT.'/contrat/liste.php'*/);
+	    DOL_URL_ROOT.'/comm/propal/list.php?mainmenu=commercial',
+	    DOL_URL_ROOT.'/commande/liste.php?mainmenu=commercial',
+	    DOL_URL_ROOT.'/compta/facture/list.php?mainmenu=accountancy',
+	    DOL_URL_ROOT.'/contrat/liste.php');
 	    // Translation lang files
 	    $langfile=array("companies",
 	                    "prospects",
-	                    //"suppliers",
+	                    "suppliers",
 	                    "members",
 	                    "products",
-	                   // "produts",
+	                    "produts",
 	                    "propal",
 	                    "orders",
-	                   // "bills"/*,
-						/*"contracts"*/);
+	                    "bills",
+                            "contracts");
 
 
 	    // Loop and displays each line of table
@@ -314,7 +314,7 @@ if (! empty($conf->commande->enabled) && $user->rights->commande->lire)
 }
 
 // Number of suppliers orders a deal
-/*
+
 if (! empty($conf->fournisseur->enabled) && $user->rights->fournisseur->commande->lire)
 {
     include_once DOL_DOCUMENT_ROOT.'/fourn/class/fournisseur.commande.class.php';
@@ -327,8 +327,8 @@ if (! empty($conf->fournisseur->enabled) && $user->rights->fournisseur->commande
     $rowspan++;
     $dashboardlines[]=$board;
 }
-*/
-/*
+
+
 // Number of commercial proposals opened (expired)
 if (! empty($conf->propal->enabled) && $user->rights->propale->lire)
 {
@@ -344,7 +344,7 @@ if (! empty($conf->propal->enabled) && $user->rights->propale->lire)
     $rowspan++;
     $dashboardlines[]=$board;
 }
-*/
+
 /*
 // Number of commercial proposals CLOSED signed (billed)
 if (! empty($conf->propal->enabled) && $user->rights->propale->lire)

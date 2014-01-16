@@ -79,11 +79,11 @@ if ($type == "c" || $type=="p")
 	$titre.='  ('.$langs->trans("ThirdPartyCustomers").')';
 	$urlfiche="fiche.php";
 }
-else if ($type == "f")
+/*else if ($type == "f")
 {
 	$titre.=' ('.$langs->trans("ThirdPartySuppliers").')';
 	$urlfiche="fiche.php";
-}
+}*/
 else if ($type == "o")
 {
 	$titre.=' ('.$langs->trans("OthersNotLinkedToThirdParty").')';

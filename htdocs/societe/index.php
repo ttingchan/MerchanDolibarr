@@ -70,7 +70,7 @@ print '<td rowspan="'.$rowspan.'"><input type="submit" class="button" value="'.$
 if (! empty($conf->barcode->enabled))
 {
 	print "<tr ".$bc[false]."><td>";
-	print $langs->trans("BarCode").':</td><td><input class="flat" type="text" size="14" name="sbarcode"></td>';
+	//print $langs->trans("BarCode").':</td><td><input class="flat" type="text" size="14" name="sbarcode"></td>';
 	//print '<td><input type="submit" class="button" value="'.$langs->trans("Search").'"></td>';
 	print '</tr>';
 }
@@ -159,7 +159,7 @@ print '</td></tr>';
 print '</table>';
 
 
-//print '</td><td valign="top" width="70%" class="notopnoleftnoright">';
+print '</td><td valign="top" width="70%" class="notopnoleftnoright">';
 print '</div><div class="fichetwothirdright"><div class="ficheaddleft">';
 
 
@@ -256,7 +256,7 @@ else
     dol_print_error($db);
 }
 
-//print '</td></tr></table>';
+print '</td></tr></table>';
 print '</div></div></div>';
 
 llxFooter();
