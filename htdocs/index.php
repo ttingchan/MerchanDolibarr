@@ -178,7 +178,7 @@ if (empty($user->societe_id))
 	                 'company',
 	                 'company',
 	                 'user',
-	                 'productss',
+	                 'product',
 	                 'service',
 					 'propal',
 					 'order',
@@ -426,6 +426,7 @@ if (! empty($conf->fournisseur->enabled) && ! empty($conf->facture->enabled) && 
 }
 */
 // Number of transactions to conciliate
+/*
 if (! empty($conf->banque->enabled) && $user->rights->banque->lire && ! $user->societe_id)
 {
     $langs->load("banks");
@@ -443,6 +444,8 @@ if (! empty($conf->banque->enabled) && $user->rights->banque->lire && ! $user->s
         $dashboardlines[]=$board;
     }
 }
+ * /
+
 /*
 // Number of cheque to send
 if (! empty($conf->banque->enabled) && $user->rights->banque->lire && ! $user->societe_id)
