@@ -31,8 +31,8 @@ $WIDTH=DolGraph::getDefaultGraphSizeForStats('width');
 $HEIGHT=DolGraph::getDefaultGraphSizeForStats('height');
 
 $mode=GETPOST("mode")?GETPOST("mode"):'customer';
-if ($mode == 'customer' && ! $user->rights->facture->lire) accessforbidden();
-if ($mode == 'supplier' && ! $user->rights->fournisseur->facture->lire) accessforbidden();
+if ($mode == 'customer' && ! $user->rights->facture->supprimer) accessforbidden();
+if ($mode == 'supplier' && ! $user->rights->fournisseur->facture->supprimer) accessforbidden();
 
 $userid=GETPOST('userid','int');
 $socid=GETPOST('socid','int');

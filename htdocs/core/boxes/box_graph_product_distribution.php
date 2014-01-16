@@ -103,7 +103,7 @@ class box_graph_product_distribution extends ModeleBoxes
 			$showordernb=$tmparray['showordernb'];
 		}
 		if (empty($showinvoicenb) && empty($showpropalnb) && empty($showordernb)) { $showpropalnb=1; $showinvoicenb=1; $showordernb=1; }
-		if (empty($conf->facture->enabled) || empty($user->rights->facture->lire)) $showinvoicenb=0;		
+		if (empty($conf->facture->enabled) || empty($user->rights->facture->supprimer)) $showinvoicenb=0;		
 		if (empty($conf->propal->enabled) || empty($user->rights->propal->lire)) $showpropalnb=0;		
 		if (empty($conf->commande->enabled) || empty($user->rights->commande->lire)) $showordernb=0;		
 
@@ -122,7 +122,7 @@ class box_graph_product_distribution extends ModeleBoxes
 		$socid=empty($user->societe_id)?0:$user->societe_id;
 		$userid=0;	// No filter on user creation
 		
-		if (! empty($conf->facture->enabled) && ! empty($user->rights->facture->lire))
+		if (! empty($conf->facture->enabled) && ! empty($user->rights->facture->supprimer))
 		{
 			
 			$WIDTH=($nbofgraph >= 2 || ! empty($conf->dol_optimize_smallscreen))?'160':'320';
@@ -314,7 +314,7 @@ class box_graph_product_distribution extends ModeleBoxes
 			$stringtoshow.='<form class="flat formboxfilter" method="POST" action="'.$_SERVER["PHP_SELF"].'">';
 			$stringtoshow.='<input type="hidden" name="action" value="'.$refreshaction.'">';
 			$stringtoshow.='<input type="hidden" name="DOL_AUTOSET_COOKIE" value="DOLUSERCOOKIE_box_'.$this->boxcode.':year,showinvoicenb,showpropalnb,showordernb">';
-			if (! empty($conf->facture->enabled) || ! empty($user->rights->facture->lire))		
+			if (! empty($conf->facture->enabled) || ! empty($user->rights->facture->supprimer))		
 			{
 				$stringtoshow.='<input type="checkbox" name="'.$param_showinvoicenb.'"'.($showinvoicenb?' checked="true"':'').'> '.$langs->trans("ForCustomersInvoices");
 				$stringtoshow.=' &nbsp; ';

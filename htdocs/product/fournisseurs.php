@@ -410,7 +410,7 @@ if ($id || $ref)
 			print '<br>';
 
 
-			if ($user->rights->fournisseur->lire)
+			if ($user->rights->fournisseur->supprimer)
 			{
 				// Suppliers list title
 				print '<table class="noborder" width="100%">';

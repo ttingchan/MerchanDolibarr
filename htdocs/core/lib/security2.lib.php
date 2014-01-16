@@ -235,9 +235,9 @@ function dol_loginfunction($langs,$conf,$mysoc)
 	{
 		$urllogo=DOL_URL_ROOT.'/theme/'.$conf->theme.'/img/dolibarr_logo.png';
 	}
-	elseif (is_readable(DOL_DOCUMENT_ROOT.'/theme/dolibarr_logo.png'))
+	elseif (is_readable(DOL_DOCUMENT_ROOT.'/theme/Merchanfeeling.gif'))
 	{
-		$urllogo=DOL_URL_ROOT.'/theme/dolibarr_logo.png';
+		$urllogo=DOL_URL_ROOT.'/theme/Merchanfeeling.gif';
 
 	}
 

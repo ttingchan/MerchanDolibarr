@@ -27,7 +27,7 @@ require '../../main.inc.php';
 $langs->load("bills");
 
 // Security check
-if (! $user->rights->facture->lire)
+if (! $user->rights->facture->supprimer)
   accessforbidden();
 
 $socid=0;

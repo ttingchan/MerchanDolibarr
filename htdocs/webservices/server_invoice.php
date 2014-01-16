@@ -280,7 +280,7 @@ function getInvoice($authentication,$id='',$ref='',$ref_ext='')
 	{
 		$fuser->getrights();
 
-		if ($fuser->rights->facture->lire)
+		if ($fuser->rights->facture->supprimer)
 		{
 			$invoice=new Facture($db);
 			$result=$invoice->fetch($id,$ref,$ref_ext);

@@ -28,7 +28,7 @@ require_once DOL_DOCUMENT_ROOT.'/core/lib/files.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/class/html.formother.class.php';
 
 // Security check
-if (! $user->rights->facture->lire) accessforbidden();
+if (! $user->rights->facture->supprimer) accessforbidden();
 
 $action=GETPOST('action');
 

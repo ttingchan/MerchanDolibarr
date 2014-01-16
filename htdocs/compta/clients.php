@@ -36,7 +36,7 @@ if ($user->societe_id > 0)
 	$socid = $user->societe_id;
 }
 
-if (! $user->rights->facture->lire)
+if (! $user->rights->facture->supprimer)
 accessforbidden();
 
 

@@ -97,7 +97,7 @@ function delivery_prepare_head($object)
 	$h = 0;
 	$head = array();
 
-	if ($conf->expedition_bon->enabled && $user->rights->expedition->lire)
+	if ($conf->expedition_bon->enabled && $user->rights->expedition->supprimer)
 	{
 		$head[$h][0] = DOL_URL_ROOT."/expedition/fiche.php?id=".$object->origin_id;
 		$head[$h][1] = $langs->trans("SendingCard");

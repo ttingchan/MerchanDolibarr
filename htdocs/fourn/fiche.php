@@ -372,7 +372,7 @@ if ($object->fetch($id))
 	$langs->load('bills');
 	$facturestatic = new FactureFournisseur($db);
 
-	if ($user->rights->fournisseur->facture->lire)
+	if ($user->rights->fournisseur->facture->supprimer)
 	{
 		// TODO move to DAO class
 		$sql = 'SELECT f.rowid,f.libelle,f.ref_supplier,f.fk_statut,f.datef as df,f.total_ttc as amount,f.paye,';

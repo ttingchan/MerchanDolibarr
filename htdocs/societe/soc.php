@@ -815,7 +815,7 @@ else
 
         print '</td></tr>';
 
-        if (! empty($conf->fournisseur->enabled) && ! empty($user->rights->fournisseur->lire))
+        if (! empty($conf->fournisseur->enabled) && ! empty($user->rights->fournisseur->supprimer))
         {
             // Supplier
             print '<tr>';
@@ -1227,7 +1227,7 @@ else
             print '</td></tr>';
 
             // Supplier
-            if (! empty($conf->fournisseur->enabled) && ! empty($user->rights->fournisseur->lire))
+            if (! empty($conf->fournisseur->enabled) && ! empty($user->rights->fournisseur->supprimer))
             {
                 print '<tr>';
                 print '<td><span class="fieldrequired">'.$langs->trans('Supplier').'</span></td><td>';
@@ -1518,7 +1518,7 @@ else
         $rowspan=4;
         if (! empty($conf->global->SOCIETE_USEPREFIX)) $rowspan++;
         if (! empty($object->client)) $rowspan++;
-        if (! empty($conf->fournisseur->enabled) && $object->fournisseur && ! empty($user->rights->fournisseur->lire)) $rowspan++;
+        if (! empty($conf->fournisseur->enabled) && $object->fournisseur && ! empty($user->rights->fournisseur->supprimer)) $rowspan++;
         if (! empty($conf->barcode->enabled)) $rowspan++;
         if (empty($conf->global->SOCIETE_DISABLE_STATE)) $rowspan++;
         $htmllogobar='';
@@ -1552,7 +1552,7 @@ else
         }
 
         // Supplier code
-        if (! empty($conf->fournisseur->enabled) && $object->fournisseur && ! empty($user->rights->fournisseur->lire))
+        if (! empty($conf->fournisseur->enabled) && $object->fournisseur && ! empty($user->rights->fournisseur->supprimer))
         {
             print '<tr><td>';
             print $langs->trans('SupplierCode').'</td><td colspan="'.(2+(($showlogo || $showbarcode)?0:1)).'">';

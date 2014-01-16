@@ -161,7 +161,7 @@ if (! empty($conf->fournisseur->enabled))
 }
 
 // Draft invoices
-if (! empty($conf->fournisseur->enabled) && $user->rights->fournisseur->facture->lire)
+if (! empty($conf->fournisseur->enabled) && $user->rights->fournisseur->facture->supprimer)
 {
 	$sql = "SELECT ff.ref_supplier, ff.rowid, ff.total_ttc, ff.type";
 	$sql.= ", s.nom, s.rowid as socid";

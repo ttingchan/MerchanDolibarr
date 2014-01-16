@@ -63,7 +63,7 @@ class box_factures extends ModeleBoxes
 				'limit'=> dol_strlen($text)
 		);
 
-		if ($user->rights->facture->lire)
+		if ($user->rights->facture->supprimer)
 		{
 			$sql = "SELECT f.rowid as facid, f.facnumber, f.type, f.amount, f.datef as df";
 			$sql.= ", f.paye, f.fk_statut, f.datec, f.tms";

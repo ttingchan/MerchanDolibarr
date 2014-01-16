@@ -61,7 +61,7 @@ class box_factures_fourn extends ModeleBoxes
 				'text' => $langs->trans("BoxTitleLastSupplierBills",$max)
 		);
 
-		if ($user->rights->fournisseur->facture->lire)
+		if ($user->rights->fournisseur->facture->supprimer)
 		{
 			$sql = "SELECT s.nom, s.rowid as socid,";
 			$sql.= " f.rowid as facid, f.ref_supplier, f.amount,";

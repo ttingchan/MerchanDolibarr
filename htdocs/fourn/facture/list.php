@@ -33,7 +33,7 @@ require_once DOL_DOCUMENT_ROOT.'/core/class/html.formother.class.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/date.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/class/html.formfile.class.php';
 
-if (!$user->rights->fournisseur->facture->lire) accessforbidden();
+if (!$user->rights->fournisseur->facture->supprimer) accessforbidden();
 
 $langs->load("companies");
 $langs->load("bills");

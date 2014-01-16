@@ -149,7 +149,7 @@ function restrictedArea($user, $features, $objectid=0, $dbtablename='', $feature
 
         if ($feature == 'societe')
         {
-            if (! $user->rights->societe->lire && ! $user->rights->fournisseur->lire) $readok=0;
+            if (! $user->rights->societe->lire && ! $user->rights->fournisseur->supprimer) $readok=0;
         }
         else if ($feature == 'contact')
         {

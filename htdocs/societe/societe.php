@@ -105,9 +105,9 @@ if ($mode == 'search')
 	if ($socid) $sql.= " AND s.rowid = ".$socid;
     if ($search_sale) $sql.= " AND s.rowid = sc.fk_soc";        // Join for the needed table to filter by sale
     if ($search_categ) $sql.= " AND s.rowid = cs.fk_societe";   // Join for the needed table to filter by categ
-	if (! $user->rights->societe->lire || ! $user->rights->fournisseur->lire)
+	if (! $user->rights->societe->lire || ! $user->rights->fournisseur->supprimer)
 	{
-		if (! $user->rights->fournisseur->lire) $sql.=" AND s.fournisseur != 1";
+		if (! $user->rights->fournisseur->supprimer) $sql.=" AND s.fournisseur != 1";
 	}
     // Insert sale filter
     if ($search_sale)
@@ -206,7 +206,7 @@ if (! $user->rights->societe->client->voir && ! $socid)	$sql.= " AND s.rowid = s
 if ($socid)	$sql.= " AND s.rowid = ".$socid;
 if ($search_sale) $sql.= " AND s.rowid = sc.fk_soc";        // Join for the needed table to filter by sale
 if ($search_categ) $sql.= " AND s.rowid = cs.fk_societe";   // Join for the needed table to filter by categ
-if (! $user->rights->fournisseur->lire) $sql.=" AND (s.fournisseur <> 1 OR s.client <> 0)";    // client=0, fournisseur=0 must be visible
+if (! $user->rights->fournisseur->supprimer) $sql.=" AND (s.fournisseur <> 1 OR s.client <> 0)";    // client=0, fournisseur=0 must be visible
 // Insert sale filter
 if ($search_sale)
 {

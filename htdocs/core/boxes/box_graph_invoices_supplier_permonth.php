@@ -80,7 +80,7 @@ class box_graph_invoices_supplier_permonth extends ModeleBoxes
 				'target'=>'none'	// Set '' to get target="_blank"
 		);
 
-		if ($user->rights->fournisseur->facture->lire)
+		if ($user->rights->fournisseur->facture->supprimer)
 		{
 			$param_year='DOLUSERCOOKIE_box_'.$this->boxcode.'_year';
 			$param_shownb='DOLUSERCOOKIE_box_'.$this->boxcode.'_shownb';

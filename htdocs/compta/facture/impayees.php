@@ -49,7 +49,7 @@ $result = restrictedArea($user,'facture',$id,'');
  * Action
  */
 
-if ($action == "builddoc" && $user->rights->facture->lire)
+if ($action == "builddoc" && $user->rights->facture->supprimer)
 {
 	if (is_array($_POST['toGenerate']))
 	{
@@ -431,8 +431,8 @@ if ($resql)
 	if ($search_montant_ht)  print '<input type="hidden" name="search_montant_ht" value="'.$search_montant_ht.'">';
 	if ($search_montant_ttc) print '<input type="hidden" name="search_montant_ttc" value="'.$search_montant_ttc.'">';
 	if ($late)               print '<input type="hidden" name="late" value="'.$late.'">';
-	$genallowed=$user->rights->facture->lire;
-	$delallowed=$user->rights->facture->lire;
+	$genallowed=$user->rights->facture->supprimer;
+	$delallowed=$user->rights->facture->supprimer;
 
 	print '<br>';
 	print '<input type="hidden" name="option" value="'.$option.'">';

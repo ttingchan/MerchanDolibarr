@@ -732,7 +732,7 @@ if ($id > 0)
 	/*
 	 *   Last invoices
 	 */
-	if (! empty($conf->facture->enabled) && $user->rights->facture->lire)
+	if (! empty($conf->facture->enabled) && $user->rights->facture->supprimer)
 	{
 		$facturestatic = new Facture($db);
 

@@ -32,7 +32,7 @@ require_once DOL_DOCUMENT_ROOT.'/product/class/product.class.php';
 $langs->load("compta");
 $langs->load("bills");
 
-if (!$user->rights->facture->lire) accessforbidden();
+if (!$user->rights->facture->supprimer) accessforbidden();
 if (!$user->rights->compta->ventilation->creer) accessforbidden();
 
 // Securite acces client

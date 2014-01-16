@@ -43,7 +43,7 @@ function propal_prepare_head($object)
 	$head[$h][2] = 'comm';
 	$h++;
 
-	if ((empty($conf->commande->enabled) &&	((! empty($conf->expedition_bon->enabled) && $user->rights->expedition->lire)
+	if ((empty($conf->commande->enabled) &&	((! empty($conf->expedition_bon->enabled) && $user->rights->expedition->supprimer)
 	|| (! empty($conf->livraison_bon->enabled) && $user->rights->expedition->livraison->lire))))
 	{
 		$langs->load("sendings");

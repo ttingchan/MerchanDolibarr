@@ -207,8 +207,8 @@ if (! empty($id) || ! empty($ref))
 
 			if ($graphfiles == 'propal' && ! $user->rights->propale->lire) continue;
 			if ($graphfiles == 'order' && ! $user->rights->commande->lire) continue;
-			if ($graphfiles == 'invoices' && ! $user->rights->facture->lire) continue;
-			if ($graphfiles == 'invoices_suppliers' && ! $user->rights->fournisseur->facture->lire) continue;
+			if ($graphfiles == 'invoices' && ! $user->rights->facture->supprimer) continue;
+			if ($graphfiles == 'invoices_suppliers' && ! $user->rights->fournisseur->facture->supprimer) continue;
 			if ($graphfiles == 'orders_suppliers' && ! $user->rights->fournisseur->commande->lire) continue;
 
 

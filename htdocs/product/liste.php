@@ -275,7 +275,7 @@ else
     	 	if (! empty($conf->barcode->enabled)) $colspan++;
     	 	if (! empty($conf->service->enabled) && $type != 0) $colspan++;
     	 	if (empty($conf->global->PRODUIT_MULTIPRICES)) $colspan++;
-    	 	if ($user->rights->fournisseur->lire) $colspan++;
+    	 	if ($user->rights->fournisseur->supprimer) $colspan++;
     	 	if (! empty($conf->stock->enabled) && $user->rights->stock->lire && $type != 1) $colspan+=2;
     	 	
     		if (! empty($conf->categorie->enabled))
@@ -300,7 +300,7 @@ else
     		print_liste_field_titre($langs->trans("DateModification"), $_SERVER["PHP_SELF"], "p.tms",$param,"",'align="center"',$sortfield,$sortorder);
     		if (! empty($conf->service->enabled) && $type != 0) print_liste_field_titre($langs->trans("Duration"), $_SERVER["PHP_SELF"], "p.duration",$param,"",'align="center"',$sortfield,$sortorder);
     		if (empty($conf->global->PRODUIT_MULTIPRICES)) print_liste_field_titre($langs->trans("SellingPrice"), $_SERVER["PHP_SELF"], "p.price",$param,"",'align="right"',$sortfield,$sortorder);
-    		if ($user->rights->fournisseur->lire) print '<td class="liste_titre" align="right">'.$langs->trans("BuyingPriceMinShort").'</td>';
+    		if ($user->rights->fournisseur->supprimer) print '<td class="liste_titre" align="right">'.$langs->trans("BuyingPriceMinShort").'</td>';
     		if (! empty($conf->stock->enabled) && $user->rights->stock->lire && $type != 1) print '<td class="liste_titre" align="right">'.$langs->trans("DesiredStock").'</td>';
     		if (! empty($conf->stock->enabled) && $user->rights->stock->lire && $type != 1) print '<td class="liste_titre" align="right">'.$langs->trans("PhysicalStock").'</td>';
     		print_liste_field_titre($langs->trans("Sell"), $_SERVER["PHP_SELF"], "p.tosell",$param,"",'align="center"',$sortfield,$sortorder);
@@ -343,7 +343,7 @@ else
             }
 
     		// Minimum buying Price
-    		if ($user->rights->fournisseur->lire) {
+    		if ($user->rights->fournisseur->supprimer) {
     			print '<td class="liste_titre">';
     			print '&nbsp;';
     			print '</td>';
@@ -456,7 +456,7 @@ else
     						if ($product_fourn->product_fourn_price_id > 0)
     						{
     							$htmltext=$product_fourn->display_price_product_fournisseur();
-    							if (! empty($conf->fournisseur->enabled) && $user->rights->fournisseur->lire) print $form->textwithpicto(price($product_fourn->fourn_unitprice).' '.$langs->trans("HT"),$htmltext);
+    							if (! empty($conf->fournisseur->enabled) && $user->rights->fournisseur->supprimer) print $form->textwithpicto(price($product_fourn->fourn_unitprice).' '.$langs->trans("HT"),$htmltext);
     							else print price($product_fourn->fourn_unitprice).' '.$langs->trans("HT");
     						}
     					}

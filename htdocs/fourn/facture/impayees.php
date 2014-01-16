@@ -31,7 +31,7 @@ require_once DOL_DOCUMENT_ROOT.'/fourn/class/fournisseur.class.php';
 require_once DOL_DOCUMENT_ROOT.'/fourn/class/fournisseur.facture.class.php';
 require_once DOL_DOCUMENT_ROOT.'/compta/paiement/class/paiement.class.php';
 
-if (! $user->rights->facture->lire) accessforbidden();
+if (! $user->rights->facture->supprimer) accessforbidden();
 
 $langs->load("companies");
 $langs->load("bills");
@@ -86,7 +86,7 @@ $pagenext = $page + 1;
 if (! $sortfield) $sortfield="f.date_lim_reglement";
 if (! $sortorder) $sortorder="ASC";
 
-if ($user->rights->fournisseur->facture->lire)
+if ($user->rights->fournisseur->facture->supprimer)
 {
 	$sql = "SELECT s.rowid as socid, s.nom,";
 	$sql.= " f.rowid, f.ref, f.ref_supplier, f.total_ht, f.total_ttc,";

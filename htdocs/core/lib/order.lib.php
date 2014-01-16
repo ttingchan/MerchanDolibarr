@@ -48,7 +48,7 @@ function commande_prepare_head($object)
 		$h++;
 	}
 
-	if (($conf->expedition_bon->enabled && $user->rights->expedition->lire)
+	if (($conf->expedition_bon->enabled && $user->rights->expedition->supprimer)
 	|| ($conf->livraison_bon->enabled && $user->rights->expedition->livraison->lire))
 	{
 		$head[$h][0] = DOL_URL_ROOT.'/expedition/shipment.php?id='.$object->id;

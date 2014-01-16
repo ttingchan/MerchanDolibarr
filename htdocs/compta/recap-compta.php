@@ -81,7 +81,7 @@ if ($socid > 0)
 
 	print '</div>';
 
-	if (! empty($conf->facture->enabled) && $user->rights->facture->lire)
+	if (! empty($conf->facture->enabled) && $user->rights->facture->supprimer)
 	{
 		// Factures
 		print_fiche_titre($langs->trans("CustomerPreview"));

@@ -72,8 +72,8 @@ if (! empty($field) && ! empty($element) && ! empty($table_element) && ! empty($
 
 	if ($user->rights->$element->lire || $user->rights->$element->read
 	|| (isset($subelement) && ($user->rights->$element->$subelement->lire || $user->rights->$element->$subelement->read))
-	|| ($element == 'payment' && $user->rights->facture->lire)
-	|| ($element == 'payment_supplier' && $user->rights->fournisseur->facture->lire))
+	|| ($element == 'payment' && $user->rights->facture->supprimer)
+	|| ($element == 'payment_supplier' && $user->rights->fournisseur->facture->supprimer))
 	{
 		if ($type == 'select')
 		{

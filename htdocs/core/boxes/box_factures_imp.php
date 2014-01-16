@@ -61,7 +61,7 @@ class box_factures_imp extends ModeleBoxes
 
 		$this->info_box_head = array('text' => $langs->trans("BoxTitleOldestUnpaidCustomerBills",$max));
 
-		if ($user->rights->facture->lire)
+		if ($user->rights->facture->supprimer)
 		{
 			$sql = "SELECT s.nom, s.rowid as socid,";
 			$sql.= " f.facnumber, f.date_lim_reglement as datelimite,";

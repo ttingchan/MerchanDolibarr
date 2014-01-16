@@ -84,7 +84,7 @@ class box_activity extends ModeleBoxes
 		$tmpdate= dol_time_plus_duree(dol_now(), -1*$nbofyears, "y");
 
 		// list the summary of the bills
-		if (! empty($conf->facture->enabled) && $user->rights->facture->lire)
+		if (! empty($conf->facture->enabled) && $user->rights->facture->supprimer)
 		{
 			include_once DOL_DOCUMENT_ROOT.'/compta/facture/class/facture.class.php';
 			$facturestatic=new Facture($db);

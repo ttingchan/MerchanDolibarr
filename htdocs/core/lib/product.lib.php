@@ -49,7 +49,7 @@ function product_prepare_head($object, $user)
 	$head[$h][2] = 'price';
 	$h++;
 
-	if (! empty($conf->fournisseur->enabled) && $user->rights->fournisseur->lire)
+	if (! empty($conf->fournisseur->enabled) && $user->rights->fournisseur->supprimer)
 	{
 		$head[$h][0] = DOL_URL_ROOT."/product/fournisseurs.php?id=".$object->id;
 		$head[$h][1] = $langs->trans("SuppliersPrices");
@@ -266,7 +266,7 @@ function show_stats_for_company($product,$socid)
 		print '</tr>';
 	}
 	// Factures clients
-	if (! empty($conf->facture->enabled) && $user->rights->facture->lire)
+	if (! empty($conf->facture->enabled) && $user->rights->facture->supprimer)
 	{
 		$ret=$product->load_stats_facture($socid);
 		if ($ret < 0) dol_print_error($db);
@@ -283,7 +283,7 @@ function show_stats_for_company($product,$socid)
 		print '</tr>';
 	}
 	// Factures fournisseurs
-	if (! empty($conf->fournisseur->enabled) && $user->rights->fournisseur->facture->lire)
+	if (! empty($conf->fournisseur->enabled) && $user->rights->fournisseur->facture->supprimer)
 	{
 		$ret=$product->load_stats_facture_fournisseur($socid);
 		if ($ret < 0) dol_print_error($db);

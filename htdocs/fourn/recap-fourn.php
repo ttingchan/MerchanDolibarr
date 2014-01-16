@@ -83,7 +83,7 @@ if ($socid > 0)
 
 
 
-    if (! empty($conf->fournisseur->enabled) && $user->rights->facture->lire)
+    if (! empty($conf->fournisseur->enabled) && $user->rights->facture->supprimer)
     {
         // Invoices list
         print_fiche_titre($langs->trans("SupplierPreview"));

@@ -31,7 +31,7 @@ require_once DOL_DOCUMENT_ROOT.'/compta/facture/class/facture.class.php';
 require_once DOL_DOCUMENT_ROOT.'/compta/prelevement/class/bonprelevement.class.php';
 require_once DOL_DOCUMENT_ROOT.'/core/class/discount.class.php';
 
-if (!$user->rights->facture->lire) accessforbidden();
+if (!$user->rights->facture->supprimer) accessforbidden();
 
 $langs->load("bills");
 $langs->load("banks");

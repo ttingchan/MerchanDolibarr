@@ -132,13 +132,13 @@ if (empty($user->societe_id))
 	    $conditions=array(
 	    ! empty($conf->societe->enabled) && $user->rights->societe->lire && empty($conf->global->SOCIETE_DISABLE_CUSTOMERS_STATS),
 	    ! empty($conf->societe->enabled) && $user->rights->societe->lire && empty($conf->global->SOCIETE_DISABLE_PROSPECTS_STATS),
-	    ! empty($conf->fournisseur->enabled) && $user->rights->fournisseur->lire && empty($conf->global->SOCIETE_DISABLE_SUPPLIERS_STATS),
+	    ! empty($conf->fournisseur->enabled) && $user->rights->fournisseur->supprimer && empty($conf->global->SOCIETE_DISABLE_SUPPLIERS_STATS),
 	    ! empty($conf->adherent->enabled) && $user->rights->adherent->lire,
 	    ! empty($conf->product->enabled) && $user->rights->produit->lire,
 	    ! empty($conf->service->enabled) && $user->rights->service->lire,
 	    ! empty($conf->propal->enabled) && $user->rights->propale->lire,
 	    ! empty($conf->commande->enabled) && $user->rights->commande->lire,
-	    ! empty($conf->facture->enabled) && $user->rights->facture->lire,
+	    ! empty($conf->facture->enabled) && $user->rights->facture->supprimer,
 	    ! empty($conf->contrat->enabled) && $user->rights->contrat->activer);
 	    // Class file containing the method load_state_board for each line
 	    $includes=array(DOL_DOCUMENT_ROOT."/societe/class/client.class.php",
@@ -149,56 +149,56 @@ if (empty($user->societe_id))
 	    DOL_DOCUMENT_ROOT."/product/class/service.class.php",
 	    DOL_DOCUMENT_ROOT."/comm/propal/class/propal.class.php",
 	    DOL_DOCUMENT_ROOT."/commande/class/commande.class.php",
-	    DOL_DOCUMENT_ROOT."/compta/facture/class/facture.class.php"/*,
-	    DOL_DOCUMENT_ROOT."/contrat/class/contrat.class.php"*/);
+	    //DOL_DOCUMENT_ROOT."/compta/facture/class/facture.class.php",
+	    /*DOL_DOCUMENT_ROOT."/contrat/class/contrat.class.php"*/);
 	    // Name class containing the method load_state_board for each line
 	    $classes=array('Client',
 	                   'Prospect',
-	                   'Fournisseur',
+	                  // 'Fournisseur',
 	                   'Adherent',
-	                   'Product',
-	                   'Service',
-					   'Propal',
-					   'Commande',
-					   'Facture'/*,
-                        'Contract'*/);
+	                   ////'Productss',
+	                   //'Service',
+					  // 'Propal',
+					//   'Commande',
+					 //  'Facture'/*,
+                       /* 'Contract'*/);
 	    // Cle array returned by the method load_state_board for each line
 	    $keys=array('customers',
 	                'prospects',
-	                'suppliers',
+	               // 'suppliers',
 	                'members',
-	                'products',
-	                'services',
+	                //pro////'productsss',
+	               // 'services',
 					'proposals',
-					'orders',
-					'invoices'/*,
-					'Contracts'*/);
+					//'orders',
+					'invoices'//,
+					/*'Contracts'*/);
 	    // Dashboard Icon lines
 	    $icons=array('company',
 	                 'company',
 	                 'company',
 	                 'user',
-	                 'product',
-	                 'service',
+	                 ////'productss',
+	                // 'service',
 					 'propal',
-					 'order',
+					// 'order',
 					 'bill',
-					 'order');
+					 /*'order'*/);
 	    // Translation keyword
 	    $titres=array("ThirdPartyCustomersStats",
 	                  "ThirdPartyProspectsStats",
-	                  "Suppliers",
+	                 // "Suppliers",
 	                  "Members",
 	                  "Products",
-	                  "Services",
+	                  //"Services",
 	                  "CommercialProposalsShort",
-	                  "CustomersOrders",
-	                  "BillsCustomers",
+	                 // "CustomersOrders",
+	                  //"BillsCustomers",
 	                  "Contracts");
 	    // Dashboard Link lines
 	    $links=array(DOL_URL_ROOT.'/comm/list.php',
 	    DOL_URL_ROOT.'/comm/prospect/list.php',
-	    DOL_URL_ROOT.'/fourn/liste.php',
+	    //DOL_URL_ROOT.'/fourn/liste.php',
 	    DOL_URL_ROOT.'/adherents/liste.php?statut=1&mainmenu=members',
 	    DOL_URL_ROOT.'/product/liste.php?type=0&mainmenu=products',
 	    DOL_URL_ROOT.'/product/liste.php?type=1&mainmenu=products',
@@ -209,14 +209,14 @@ if (empty($user->societe_id))
 	    // Translation lang files
 	    $langfile=array("companies",
 	                    "prospects",
-	                    "suppliers",
+	                    //"suppliers",
 	                    "members",
 	                    "products",
-	                    "produts",
+	                   // "produts",
 	                    "propal",
 	                    "orders",
-	                    "bills"/*,
-						"contracts"*/);
+	                   // "bills"/*,
+						/*"contracts"*/);
 
 
 	    // Loop and displays each line of table
@@ -272,7 +272,7 @@ $dashboardlines=array();
 
 print '<table class="noborder" width="100%">';
 print '<tr class="liste_titre">';
-print '<th class="liste_titre"colspan="2">'.$langs->trans("DolibarrWorkBoard").'</th>';
+print '<th class="liste_titre"colspan="2">'.$langs->trans("MerchanfeelingWorkBoard").'</th>';
 print '<th class="liste_titre"align="right">'.$langs->trans("Number").'</th>';
 print '<th class="liste_titre"align="right">'.$langs->trans("Late").'</th>';
 print '<th class="liste_titre">&nbsp;</th>';
@@ -314,6 +314,7 @@ if (! empty($conf->commande->enabled) && $user->rights->commande->lire)
 }
 
 // Number of suppliers orders a deal
+/*
 if (! empty($conf->fournisseur->enabled) && $user->rights->fournisseur->commande->lire)
 {
     include_once DOL_DOCUMENT_ROOT.'/fourn/class/fournisseur.commande.class.php';
@@ -326,7 +327,8 @@ if (! empty($conf->fournisseur->enabled) && $user->rights->fournisseur->commande
     $rowspan++;
     $dashboardlines[]=$board;
 }
-
+*/
+/*
 // Number of commercial proposals opened (expired)
 if (! empty($conf->propal->enabled) && $user->rights->propale->lire)
 {
@@ -342,7 +344,8 @@ if (! empty($conf->propal->enabled) && $user->rights->propale->lire)
     $rowspan++;
     $dashboardlines[]=$board;
 }
-
+*/
+/*
 // Number of commercial proposals CLOSED signed (billed)
 if (! empty($conf->propal->enabled) && $user->rights->propale->lire)
 {
@@ -357,7 +360,7 @@ if (! empty($conf->propal->enabled) && $user->rights->propale->lire)
     $board->img=img_object($langs->trans("Propals"),"propal");
     $rowspan++;
     $dashboardlines[]=$board;
-}
+}*/
 /*
 // Number of services enabled (delayed)
 if (! empty($conf->contrat->enabled) && $user->rights->contrat->lire)
@@ -391,7 +394,7 @@ if (! empty($conf->contrat->enabled) && $user->rights->contrat->lire)
     $dashboardlines[]=$board;
 }
 // Number of invoices customers (has paid)
-if (! empty($conf->facture->enabled) && $user->rights->facture->lire)
+if (! empty($conf->facture->enabled) && $user->rights->facture->supprimer)
 {
     $langs->load("bills");
 
@@ -407,7 +410,7 @@ if (! empty($conf->facture->enabled) && $user->rights->facture->lire)
 }
 
 // Number of supplier invoices (has paid)
-if (! empty($conf->fournisseur->enabled) && ! empty($conf->facture->enabled) && $user->rights->facture->lire)
+if (! empty($conf->fournisseur->enabled) && ! empty($conf->facture->enabled) && $user->rights->facture->supprimer)
 {
     $langs->load("bills");
 
@@ -440,7 +443,7 @@ if (! empty($conf->banque->enabled) && $user->rights->banque->lire && ! $user->s
         $dashboardlines[]=$board;
     }
 }
-
+/*
 // Number of cheque to send
 if (! empty($conf->banque->enabled) && $user->rights->banque->lire && ! $user->societe_id)
 {
@@ -455,7 +458,7 @@ if (! empty($conf->banque->enabled) && $user->rights->banque->lire && ! $user->s
     $board->img=img_object($langs->trans("BankChecksToReceipt"),"payment");
     $rowspan++;
     $dashboardlines[]=$board;
-}
+}*/
 
 // Number of foundation members
 if (! empty($conf->adherent->enabled) && $user->rights->adherent->lire && ! $user->societe_id)
@@ -536,7 +539,7 @@ print '</div>';
 /*
  * Show security warnings
  */
-
+/*
 // Security warning repertoire install existe (si utilisateur admin)
 if ($user->admin && empty($conf->global->MAIN_REMOVE_INSTALL_WARNING))
 {
@@ -573,7 +576,7 @@ if ($user->admin && empty($conf->global->MAIN_REMOVE_INSTALL_WARNING))
 llxFooter();
 
 $db->close();
-
+*/
 
 /**
  *  Show weather logo. Logo to show depends on $totallate and values for

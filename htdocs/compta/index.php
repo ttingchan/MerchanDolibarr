@@ -114,7 +114,7 @@ $max=3;
 /*
  * Search invoices
  */
-if (! empty($conf->facture->enabled) && $user->rights->facture->lire)
+if (! empty($conf->facture->enabled) && $user->rights->facture->supprimer)
 {
 	print '<form method="post" action="'.DOL_URL_ROOT.'/compta/facture/list.php">';
 	print '<input type="hidden" name="token" value="'.$_SESSION['newtoken'].'">';
@@ -131,7 +131,7 @@ if (! empty($conf->facture->enabled) && $user->rights->facture->lire)
 /*
  * Search supplier invoices
  */
-if (! empty($conf->fournisseur->enabled) && $user->rights->fournisseur->lire)
+if (! empty($conf->fournisseur->enabled) && $user->rights->fournisseur->supprimer)
 {
 	print '<form method="post" action="'.DOL_URL_ROOT.'/fourn/facture/list.php">';
 	print '<input type="hidden" name="token" value="'.$_SESSION['newtoken'].'">';
@@ -184,7 +184,7 @@ if (! empty($conf->deplacement->enabled) && $user->rights->deplacement->lire)
 /**
  * Draft customers invoices
  */
-if (! empty($conf->facture->enabled) && $user->rights->facture->lire)
+if (! empty($conf->facture->enabled) && $user->rights->facture->supprimer)
 {
 	$sql  = "SELECT f.facnumber, f.rowid, f.total_ttc, f.type,";
 	$sql.= " s.nom, s.rowid as socid";
@@ -258,7 +258,7 @@ if (! empty($conf->facture->enabled) && $user->rights->facture->lire)
 /**
  * Draft suppliers invoices
  */
-if (! empty($conf->fournisseur->enabled) && $user->rights->fournisseur->facture->lire)
+if (! empty($conf->fournisseur->enabled) && $user->rights->fournisseur->facture->supprimer)
 {
 	$sql  = "SELECT f.ref, f.rowid, f.total_ttc, f.type,";
 	$sql.= " s.nom, s.rowid as socid";
@@ -329,7 +329,7 @@ print '</div><div class="fichetwothirdright"><div class="ficheaddleft">';
 
 
 // Last modified customer invoices
-if (! empty($conf->facture->enabled) && $user->rights->facture->lire)
+if (! empty($conf->facture->enabled) && $user->rights->facture->supprimer)
 {
 	$langs->load("boxes");
 	$facstatic=new Facture($db);
@@ -428,7 +428,7 @@ if (! empty($conf->facture->enabled) && $user->rights->facture->lire)
 
 
 // Last modified supplier invoices
-if (! empty($conf->fournisseur->enabled) && $user->rights->fournisseur->facture->lire)
+if (! empty($conf->fournisseur->enabled) && $user->rights->fournisseur->facture->supprimer)
 {
 	$langs->load("boxes");
 	$facstatic=new FactureFournisseur($db);
@@ -822,7 +822,7 @@ if (! empty($conf->facture->enabled) && ! empty($conf->commande->enabled) && $us
 /*
  * Unpaid customers invoices
  */
-if (! empty($conf->facture->enabled) && $user->rights->facture->lire)
+if (! empty($conf->facture->enabled) && $user->rights->facture->supprimer)
 {
 	$facstatic=new Facture($db);
 
@@ -927,7 +927,7 @@ if (! empty($conf->facture->enabled) && $user->rights->facture->lire)
 /*
  * Unpayed supplier invoices
  */
-if (! empty($conf->fournisseur->enabled) && $user->rights->fournisseur->facture->lire)
+if (! empty($conf->fournisseur->enabled) && $user->rights->fournisseur->facture->supprimer)
 {
 	$facstatic=new FactureFournisseur($db);
 
