@@ -44,10 +44,10 @@ $(document).ready(function () {
 <form id="login" name="login" method="post" action="<?php echo $php_self; ?>">
 <input type="hidden" name="token" value="<?php echo $_SESSION['newtoken']; ?>">
 <input type="hidden" name="action" value="buildnewpassword">
-
+<!--
 <table class="login_table_title" summary="<?php echo dol_escape_htmltag($title); ?>" align="center">
 <tr class="vmenu"><td align="center"><?php echo $title; ?></td></tr>
-</table>
+</table>-->
 <br>
 
 <div class="login_table">

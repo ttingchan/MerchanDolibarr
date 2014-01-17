@@ -58,11 +58,10 @@ $(document).ready(function () {
 <input type="hidden" name="dol_optimize_smallscreen" id="dol_optimize_smallscreen" value="<?php echo $dol_optimize_smallscreen; ?>" />
 <input type="hidden" name="dol_no_mouse_hover" id="dol_no_mouse_hover" value="<?php echo $dol_no_mouse_hover; ?>" />
 <input type="hidden" name="dol_use_jmobile" id="dol_use_jmobile" value="<?php echo $dol_use_jmobile; ?>" />
-
+<!--
 <table class="login_table_title" summary="<?php echo dol_escape_htmltag($title); ?>" align="center">
 <tr class="vmenu"><td align="center"><?php echo $title; ?></td></tr>
-</table>
-<br>
+</table> -->
 
 <div class="login_table">
 
@@ -138,19 +137,19 @@ if ($forgetpasslink || $helpcenterlink)
 		echo '<a class="alogin" href="'.DOL_URL_ROOT.'/user/passwordforgotten.php'.$moreparam.'">(';
 		echo $langs->trans('PasswordForgotten');
 		if (! $helpcenterlink) echo ')';
-		echo '</a>';
+		//echo '</a>';
 	}
 
-	if ($forgetpasslink && $helpcenterlink) echo '&nbsp;-&nbsp;';
-
+	//if ($forgetpasslink && $helpcenterlink) echo '&nbsp;-&nbsp;';
+/*
 	if ($helpcenterlink) {
 		$url=DOL_URL_ROOT.'/support/index.php'.$moreparam;
 		if (! empty($conf->global->MAIN_HELPCENTER_LINKTOUSE)) $url=$conf->global->MAIN_HELPCENTER_LINKTOUSE;
-		echo '<a class="alogin" href="'.dol_escape_htmltag($url).'" target="_blank">';
+		//echo '<a class="alogin" href="'.dol_escape_htmltag($url).'" target="_blank">';
 		if (! $forgetpasslink) echo '(';
-		echo $langs->trans('NeedHelpCenter');
+		echo $langs->trans('NeedHelpCenter');*/
 		echo ')</a>';
-	}
+	//}
 	echo '</div>';
 }
 
