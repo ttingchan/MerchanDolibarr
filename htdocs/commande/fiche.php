@@ -1630,12 +1630,13 @@ if ($action == 'create' && $user->rights->commande->creer)
 		print '</td></tr>';
 	}
 	// Date
-	print '<tr><td class="fieldrequired">'.$langs->trans('Date').'</td><td colspan="2">';
+	print '<tr><td class="fieldrequired">'.$langs->trans('Start Date').'</td><td colspan="2">';
 	$form->select_date('','re','','','',"crea_commande",1,1);
 	print '</td></tr>';
 
+        
 	// Date de livraison
-	print "<tr><td>".$langs->trans("DeliveryDate").'</td><td colspan="2">';
+	print "<tr><td>".$langs->trans("End Date").'</td><td colspan="2">';
 	if (empty($datedelivery))
 	{
 		if (! empty($conf->global->DATE_LIVRAISON_WEEK_DELAY)) $datedelivery = time() + ((7*$conf->global->DATE_LIVRAISON_WEEK_DELAY) * 24 * 60 * 60);
@@ -1643,7 +1644,8 @@ if ($action == 'create' && $user->rights->commande->creer)
 	}
 	$form->select_date($datedelivery,'liv_','','','',"crea_commande",1,1);
 	print "</td></tr>";
-
+        
+        /*
 	// Conditions de reglement
 	print '<tr><td class="nowrap">'.$langs->trans('PaymentConditionsShort').'</td><td colspan="2">';
 	$form->select_conditions_paiements($cond_reglement_id,'cond_reglement_id',-1,1);
@@ -1653,12 +1655,15 @@ if ($action == 'create' && $user->rights->commande->creer)
 	print '<tr><td>'.$langs->trans('PaymentMode').'</td><td colspan="2">';
 	$form->select_types_paiements($mode_reglement_id,'mode_reglement_id');
 	print '</td></tr>';
-
+        */
+        
+        /*
 	// Delivery delay
 	print '<tr><td>'.$langs->trans('AvailabilityPeriod').'</td><td colspan="2">';
 	$form->select_availability($availability_id,'availability_id','',1);
 	print '</td></tr>';
-
+        */
+        
 	// What trigger creation
 	print '<tr><td>'.$langs->trans('Source').'</td><td colspan="2">';
 	$form->select_demand_reason($demand_reason_id,'demand_reason_id','',1);
@@ -2064,7 +2069,7 @@ else
 		// Date
 		print '<tr><td>';
 		print '<table class="nobordernopadding" width="100%"><tr><td>';
-		print $langs->trans('Date');
+		print $langs->trans('Start Date');
 		print '</td>';
 
 		if ($action != 'editdate' && $object->brouillon) print '<td align="right"><a href="'.$_SERVER["PHP_SELF"].'?action=editdate&amp;id='.$object->id.'">'.img_edit($langs->trans('SetDate'),1).'</a></td>';
@@ -2085,11 +2090,11 @@ else
 		}
 		print '</td>';
 		print '</tr>';
-
+                
 		// Delivery date planed
 		print '<tr><td height="10">';
 		print '<table class="nobordernopadding" width="100%"><tr><td>';
-		print $langs->trans('DateDeliveryPlanned');
+		print $langs->trans('End Date');
 		print '</td>';
 		if ($action != 'editdate_livraison') print '<td align="right"><a href="'.$_SERVER["PHP_SELF"].'?action=editdate_livraison&amp;id='.$object->id.'">'.img_edit($langs->trans('SetDeliveryDate'),1).'</a></td>';
 		print '</tr></table>';
@@ -2109,7 +2114,8 @@ else
 		}
 		print '</td>';
 		print '</tr>';
-
+                
+                /*
 		// Terms of payment
 		print '<tr><td height="10">';
 		print '<table class="nobordernopadding" width="100%"><tr><td>';
@@ -2129,7 +2135,9 @@ else
 		print '</td>';
 
 		print '</tr>';
-
+                */
+                
+                /*
 		// Mode of payment
 		print '<tr><td height="10">';
 		print '<table class="nobordernopadding" width="100%"><tr><td>';
@@ -2187,7 +2195,8 @@ else
 		//print '</td><td>';
 		//print '<a href="'.DOL_URL_ROOT.'/admin/dict.php?id=22&origin=order&originid='.$object->id.'">'.$langs->trans("DictionnarySource").'</a>';
 		print '</td></tr>';
-
+                */
+                /*
 		// Project
 		if (! empty($conf->projet->enabled))
 		{
@@ -2278,11 +2287,12 @@ else
 		$rowspan=4;
 		if ($mysoc->localtax1_assuj=="1") $rowspan++;
 		if ($mysoc->localtax2_assuj=="1") $rowspan++;
-
+                */
+                /*
 		// Total HT
 		print '<tr><td>'.$langs->trans('AmountHT').'</td>';
 		print '<td align="right">'.price($object->total_ht,1,'',1,-1,-1,$conf->currency).'</td>';
-
+*/
 		// Margin Infos
 		if (! empty($conf->margin->enabled))
 		{
@@ -2293,7 +2303,7 @@ else
 		else print '<td width="50%" colspan="2" rowspan="'.$rowspan.'"></td>';
 
 		print '</tr>';
-
+                /*
 		// Total TVA
 		print '<tr><td>'.$langs->trans('AmountVAT').'</td><td align="right">'.price($object->total_tva,1,'',1,-1,-1,$conf->currency).'</td></tr>';
 
@@ -2311,7 +2321,7 @@ else
 
 		// Total TTC
 		print '<tr><td>'.$langs->trans('AmountTTC').'</td><td align="right">'.price($object->total_ttc,1,'',1,-1,-1,$conf->currency).'</td></tr>';
-
+                */
 		// Statut
 		print '<tr><td>'.$langs->trans('Status').'</td><td>'.$object->getLibStatut(4).'</td></tr>';
 
