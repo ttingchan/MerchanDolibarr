@@ -130,12 +130,14 @@ if ($action == 'edit')	// Edit
 
 
     // Addresses
+    /*
     print_fiche_titre($langs->trans("PDFAddressForging"),'','').'<br>';
 	$var=true;
     print '<table summary="more" class="noborder" width="100%">';
     print '<tr class="liste_titre"><td>'.$langs->trans("Parameter").'</td><td width="200px">'.$langs->trans("Value").'</td></tr>';
 
     // Show prof id 1 in address into pdf
+    
     $var=!$var;
     if (! $noCountryCode)
     {
@@ -152,8 +154,9 @@ if ($action == 'edit')	// Edit
     	print $form->selectyesno('MAIN_PROFID1_IN_ADDRESS',isset($conf->global->MAIN_PROFID1_IN_ADDRESS)?$conf->global->MAIN_PROFID1_IN_ADDRESS:0,1,$noCountryCode);
     	print '</td></tr>';
     }
-
+    */
     // Show prof id 2 in address into pdf
+    /*
     $var=!$var;
     if (! $noCountryCode)
     {
@@ -170,8 +173,9 @@ if ($action == 'edit')	// Edit
     	print $form->selectyesno('MAIN_PROFID2_IN_ADDRESS',isset($conf->global->MAIN_PROFID2_IN_ADDRESS)?$conf->global->MAIN_PROFID2_IN_ADDRESS:0,1,$noCountryCode);
     	print '</td></tr>';
     }
-
+    */
     // Show prof id 3 in address into pdf
+    /*
     $var=!$var;
     if (! $noCountryCode)
     {
@@ -188,8 +192,9 @@ if ($action == 'edit')	// Edit
     	print $form->selectyesno('MAIN_PROFID3_IN_ADDRESS',isset($conf->global->MAIN_PROFID3_IN_ADDRESS)?$conf->global->MAIN_PROFID3_IN_ADDRESS:0,1,$noCountryCode);
     	print '</td></tr>';
     }
-
+    */
     // Show prof id 4 in address into pdf
+    /*
     $var=!$var;
     if (! $noCountryCode)
     {
@@ -206,12 +211,13 @@ if ($action == 'edit')	// Edit
     	print $form->selectyesno('MAIN_PROFID4_IN_ADDRESS',isset($conf->global->MAIN_PROFID4_IN_ADDRESS)?$conf->global->MAIN_PROFID4_IN_ADDRESS:0,1,$noCountryCode);
     	print '</td></tr>';
     }
-
+    */
 	print '</table>';
 
     print '<br>';
 
     // Other
+    /*
     print_fiche_titre($langs->trans("Other"),'','').'<br>';
 	$var=true;
     print '<table summary="more" class="noborder" width="100%">';
@@ -246,7 +252,7 @@ if ($action == 'edit')	// Edit
     print '<tr '.$bc[$var].'><td>'.$langs->trans("HideDetailsOnPDF").'</td><td>';
     print $form->selectyesno('MAIN_GENERATE_DOCUMENTS_HIDE_DETAILS',(! empty($conf->global->MAIN_GENERATE_DOCUMENTS_HIDE_DETAILS))?$conf->global->MAIN_GENERATE_DOCUMENTS_HIDE_DETAILS:0,1);
     print '</td></tr>';
-
+*/
 
 	print '</table>';
 
@@ -298,12 +304,13 @@ else	// Show
 	print '</table>';
 
 	print '<br>';
-
+/*
 	print_fiche_titre($langs->trans("PDFAddressForging"),'','').'<br>';
     print '<table class="noborder" width="100%">';
     print '<tr class="liste_titre"><td>'.$langs->trans("Parameter").'</td><td width="200px">'.$langs->trans("Value").'</td></tr>';
 
     // Show prof id 1 in address into pdf
+    
     $var=!$var;
     if (! $noCountryCode)
     {
@@ -320,8 +327,9 @@ else	// Show
     	print yn($conf->global->MAIN_PROFID1_IN_ADDRESS,1);
     	print '</td></tr>';
     }
-
+    */
     // Show prof id 2 in address into pdf
+    /*
     $var=!$var;
     if (! $noCountryCode)
     {
@@ -338,8 +346,9 @@ else	// Show
     	print yn($conf->global->MAIN_PROFID2_IN_ADDRESS,1);
     	print '</td></tr>';
     }
-
+    */
     // Show prof id 3 in address into pdf
+    /*
     $var=!$var;
     if (! $noCountryCode)
     {
@@ -356,8 +365,11 @@ else	// Show
     	print yn($conf->global->MAIN_PROFID3_IN_ADDRESS,1);
     	print '</td></tr>';
     }
+     * */
+     
 
     // Show prof id 4 in address into pdf
+    /*
     $var=!$var;
     if (! $noCountryCode)
     {
@@ -373,13 +385,14 @@ else	// Show
     	print '<tr '.$bc[$var].'><td>'.$langs->trans("ShowProfIdInAddress").' - '.$pid4.'</td><td>';
     	print yn($conf->global->MAIN_PROFID4_IN_ADDRESS,1);
     	print '</td></tr>';
-    }
+    }*/
 
     print '</table>'."\n";
 
     print '<br>';
 
     // Other
+    /*
     print_fiche_titre($langs->trans("Other"),'','').'<br>';
 	$var=true;
     print '<table summary="more" class="noborder" width="100%">';
@@ -448,7 +461,7 @@ else	// Show
 
 	print '</table>';
 
-
+        */
 	/*
 	 *  Library
 	 */

@@ -100,6 +100,7 @@ if ($action == 'setmode' && $user->rights->societe->creer)
 	if ($result < 0) dol_print_error($db,$object->error);
 }
 // assujetissement a la TVA
+/*
 if ($action == 'setassujtva' && $user->rights->societe->creer)
 {
 	$object->fetch($id);
@@ -110,7 +111,7 @@ if ($action == 'setassujtva' && $user->rights->societe->creer)
 	$result = $db->query($sql);
 	if (! $result) dol_print_error($result);
 }
-
+*/
 // set prospect level
 if ($action == 'setprospectlevel' && $user->rights->societe->creer)
 {
@@ -274,12 +275,13 @@ if ($id > 0)
   }
 
 	// Assujeti a TVA ou pas
+        /*
 	print '<tr>';
 	print '<td class="nowrap">'.$langs->trans('VATIsUsed').'</td><td colspan="3">';
 	print yn($object->tva_assuj);
 	print '</td>';
 	print '</tr>';
-
+        
 	// Local Taxes
 	if($mysoc->country_code=='ES')
 	{
@@ -305,11 +307,16 @@ if ($id > 0)
 			print '</td></tr>';
 		}
 	}
+         * 
+         */
 
 	// TVA Intra
+  /*
 	print '<tr><td class="nowrap">'.$langs->trans('VATIntra').'</td><td colspan="3">';
 	print $object->tva_intra;
 	print '</td></tr>';
+   * *
+   */
 
 	// Conditions de reglement par defaut
 	$langs->load('bills');
@@ -351,6 +358,7 @@ if ($id > 0)
 	print '</tr>';
 
 	// Relative discounts (Discounts-Drawbacks-Rebates)
+        /*
 	print '<tr><td class="nowrap">';
 	print '<table width="100%" class="nobordernopadding"><tr><td class="nowrap">';
 	print $langs->trans("CustomerRelativeDiscountShort");
@@ -362,8 +370,10 @@ if ($id > 0)
 	print '</td></tr></table>';
 	print '</td><td colspan="3">'.($object->remise_percent?'<a href="'.DOL_URL_ROOT.'/comm/remise.php?id='.$object->id.'">'.$object->remise_percent.'%</a>':$langs->trans("DiscountNone")).'</td>';
 	print '</tr>';
-
+        */
+        
 	// Absolute discounts (Discounts-Drawbacks-Rebates)
+        /*
 	print '<tr><td class="nowrap">';
 	print '<table width="100%" class="nobordernopadding">';
 	print '<tr><td class="nowrap">';
@@ -393,6 +403,8 @@ if ($id > 0)
 		print '</td>';
 		print '</tr>';
 	}
+         * 
+         */
 
 
 	// Multiprice level

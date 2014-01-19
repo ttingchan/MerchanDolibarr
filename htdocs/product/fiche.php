@@ -668,6 +668,7 @@ else
     // -----------------------------------------
     // When used in standard mode
     // -----------------------------------------
+    
     if ($action == 'create' && ($user->rights->produit->creer || $user->rights->service->creer))
     {
         //WYSIWYG Editor
@@ -766,6 +767,7 @@ else
             print '</td></tr>';
         }
 
+        /*
         if ($type != 1)	// Le poids et le volume ne concerne que les produits et pas les services
         {
             // Weight
@@ -789,16 +791,18 @@ else
             print $formproduct->select_measuring_units("volume_units","volume");
             print '</td></tr>';
         }
-
+        */
         // Customs code
         print '<tr><td>'.$langs->trans("CustomCode").'</td><td><input name="customcode" size="10" value="'.GETPOST('customcode').'"></td></tr>';
 
         // Origin country
+        /*
         print '<tr><td>'.$langs->trans("CountryOrigin").'</td><td>';
         print $form->select_country(GETPOST('country_id','int'),'country_id');
         if ($user->admin) print info_admin($langs->trans("YouCanChangeValuesForThisListFromDictionnarySetup"),1);
         print '</td></tr>';
-
+        */
+        
         // Other attributes
         $parameters=array('colspan' => ' colspan="2"');
         $reshook=$hookmanager->executeHooks('formObjectOptions',$parameters,$object,$action);    // Note that $action and $object may have been modified by hook
@@ -824,6 +828,7 @@ else
             // We do no show price array on create when multiprices enabled.
             // We must set them on prices tab.
         }
+        /*
         else
         {
             print '<table class="border" width="100%">';
@@ -848,7 +853,7 @@ else
 
             print '<br>';
         }
-
+        */
         print '<center><input type="submit" class="button" value="'.$langs->trans("Create").'"></center>';
 
         print '</form>';

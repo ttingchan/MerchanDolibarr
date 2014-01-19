@@ -888,6 +888,7 @@ else
         print '<td>'.$langs->trans('Fax').'</td><td><input type="text" name="fax" value="'.$object->fax.'"></td></tr>';
 
         // Prof ids
+        /*
         $i=1; $j=0;
         while ($i <= 6)
         {
@@ -911,8 +912,10 @@ else
             $i++;
         }
         if ($j % 2 == 1) print '<td colspan="2"></td></tr>';
-
+        */
+        
         // Assujeti TVA
+        /*
         print '<tr><td>'.$langs->trans('VATIsUsed').'</td>';
         print '<td>';
         print $form->selectyesno('assujtva_value',1,1);     // Assujeti par defaut en creation
@@ -945,7 +948,8 @@ else
         print $s;
         print '</td>';
         print '</tr>';
-
+        */
+        
         // Type - Size
         print '<tr><td>'.$langs->trans("ThirdPartyType").'</td><td>'."\n";
         print $form->selectarray("typent_id", $formcompany->typent_array(0), $object->typent_id, 0, 0, 0, '', 0, 0, 0, (empty($conf->global->SOCIETE_SORT_ON_TYPEENT)?'ASC':$conf->global->SOCIETE_SORT_ON_TYPEENT));
@@ -1312,6 +1316,7 @@ else
             print '<td>'.$langs->trans('Fax').'</td><td><input type="text" name="fax" value="'.$object->fax.'"></td></tr>';
 
             // Prof ids
+            /*
             $i=1; $j=0;
             while ($i <= 6)
             {
@@ -1335,13 +1340,17 @@ else
                 $i++;
             }
             if ($j % 2 == 1) print '<td colspan="2"></td></tr>';
-
+            */
+            
             // VAT payers
+            /*
             print '<tr><td>'.$langs->trans('VATIsUsed').'</td><td>';
             print $form->selectyesno('assujtva_value',$object->tva_assuj,1);
             print '</td>';
-
+            */
+            
             // VAT Code
+            /*
             print '<td>'.$langs->trans('VATIntra').'</td>';
             print '<td>';
             $s ='<input type="text" class="flat" name="tva_intra" size="12" maxlength="20" value="'.$object->tva_intra.'">';
@@ -1370,9 +1379,11 @@ else
             print $s;
             print '</td>';
             print '</tr>';
-
+            */
             // Local Taxes
+            // /*
             //TODO: Place into a function to control showing by country or study better option
+            /*
             if($mysoc->localtax1_assuj=="1" && $mysoc->localtax2_assuj=="1")
             {
                 print '<tr><td>'.$langs->transcountry("LocalTax1IsUsed",$mysoc->country_code).'</td><td>';
@@ -1402,7 +1413,7 @@ else
             	print $form->selectyesno('localtax2assuj_value',0,1);
             	print '</td><tr>';
             }
-
+            */
             // Type - Size
             print '<tr><td>'.$langs->trans("ThirdPartyType").'</td><td>';
             print $form->selectarray("typent_id",$formcompany->typent_array(0), $object->typent_id, 0, 0, 0, '', 0, 0, 0, (empty($conf->global->SOCIETE_SORT_ON_TYPEENT)?'ASC':$conf->global->SOCIETE_SORT_ON_TYPEENT));
@@ -1628,6 +1639,7 @@ else
         print '<td>'.$langs->trans('Fax').'</td><td style="min-width: 25%;">'.dol_print_phone($object->fax,$object->country_code,0,$object->id,'AC_FAX').'</td></tr>';
 
         // Prof ids
+        /*
         $i=1; $j=0;
         while ($i <= 6)
         {
@@ -1650,15 +1662,19 @@ else
             $i++;
         }
         if ($j % 2 == 1)  print '<td colspan="2"></td></tr>';
-
+        */
+        
         // VAT payers
+        /*
         print '<tr><td>';
         print $langs->trans('VATIsUsed');
         print '</td><td>';
         print yn($object->tva_assuj);
         print '</td>';
 
+        */
         // VAT Code
+        /*
         print '<td class="nowrap">'.$langs->trans('VATIntra').'</td><td>';
         if ($object->tva_intra)
         {
@@ -1695,9 +1711,10 @@ else
         }
         print '</td>';
         print '</tr>';
-
+        */
         // Local Taxes
         //TODO: Place into a function to control showing by country or study better option
+        /*
         if($mysoc->localtax1_assuj=="1" && $mysoc->localtax2_assuj=="1")
         {
             print '<tr><td>'.$langs->transcountry("LocalTax1IsUsed",$mysoc->country_code).'</td><td>';
@@ -1726,7 +1743,7 @@ else
             print yn($object->localtax2_assuj);
             print '</td><tr>';
         }
-
+        */
         // Type + Staff
         $arr = $formcompany->typent_array(1);
         $object->typent= $arr[$object->typent_code];
@@ -1764,6 +1781,7 @@ else
         }
 
         // Ban
+        /*
         if (empty($conf->global->SOCIETE_DISABLE_BANKACCOUNT))
         {
             print '<tr><td>';
@@ -1778,7 +1796,7 @@ else
             print $object->display_rib();
             print '</td></tr>';
         }
-
+        */
         // Parent company
         if (empty($conf->global->SOCIETE_DISABLE_PARENTCOMPANY))
         {

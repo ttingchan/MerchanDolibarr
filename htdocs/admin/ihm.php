@@ -380,12 +380,15 @@ else	// Show
 	print '</td></tr>';
 
     // Link to help center
+    /*
     $var=!$var;
     print '<tr '.$bc[$var].'><td width="35%">'.$langs->trans("DisableLinkToHelpCenter").'</td><td colspan="2">';
     print yn((isset($conf->global->MAIN_HELPCENTER_DISABLELINK)?$conf->global->MAIN_HELPCENTER_DISABLELINK:0),1);
     print '</td></tr>';
-
+    */
+        
     // Link to wiki help
+    /*
     $var=!$var;
     print '<tr '.$bc[$var].'><td width="35%">'.$langs->trans("DisableLinkToHelp",img_picto('',DOL_URL_ROOT.'/theme/'.$conf->theme.'/img/helpdoc.png','',1)).'</td><td colspan="2">';
     print yn((isset($conf->global->MAIN_HELP_DISABLELINK)?$conf->global->MAIN_HELP_DISABLELINK:0),1);
@@ -400,6 +403,8 @@ else	// Show
     	print '<td width="20">&nbsp;</td>';
     	print "</tr>";
     }
+     * */
+     
 
     // Message login
     $var=!$var;

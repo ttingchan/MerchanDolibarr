@@ -369,7 +369,7 @@ if ($action == 'edit' || $action == 'updateedit')
     print '</table>';
 
     print '<br>';
-
+/*
     // Identifiants de la societe (country-specific)
     print '<table class="noborder" width="100%">';
     print '<tr class="liste_titre"><td>'.$langs->trans("CompanyIds").'</td><td>'.$langs->trans("Value").'</td></tr>';
@@ -490,7 +490,9 @@ if ($action == 'edit' || $action == 'updateedit')
         }
         print '</td></tr>';
     }
-
+*/
+    /*
+    
     // TVA Intra
     $var=!$var;
     print '<tr '.$bc[$var].'><td width="35%">'.$langs->trans("VATIntra").'</td><td>';
@@ -498,11 +500,12 @@ if ($action == 'edit' || $action == 'updateedit')
     print '</td></tr>';
 
     print '</table>';
-
+*/
 
     /*
      *  Debut d'annee fiscale
      */
+    /*
     print '<br>';
     print '<table class="noborder" width="100%">';
     print '<tr class="liste_titre">';
@@ -515,11 +518,12 @@ if ($action == 'edit' || $action == 'updateedit')
     print $formother->select_month($conf->global->SOCIETE_FISCAL_MONTH_START,'fiscalmonthstart',1) . '</td></tr>';
 
     print "</table>";
-
+*/
 
     /*
      *  Options fiscale
      */
+    /*
     print '<br>';
     print '<table class="noborder" width="100%">';
     print '<tr class="liste_titre">';
@@ -547,10 +551,12 @@ if ($action == 'edit' || $action == 'updateedit')
     print "</td></tr>\n";
 
     print "</table>";
-
+    */
     /*
      *  Local Taxes
      */
+    
+    /*
     if ($mysoc->useLocalTax(1))
     {
         // Local Tax 1
@@ -616,7 +622,7 @@ if ($action == 'edit' || $action == 'updateedit')
         print "</td></tr>\n";
         print "</table>";
     }
-
+*/ 
 
     print '<br><center>';
     print '<input type="submit" class="button" name="save" value="'.$langs->trans("Save").'">';
@@ -626,6 +632,7 @@ if ($action == 'edit' || $action == 'updateedit')
     print '<br>';
 
     print '</form>';
+      
 }
 else
 {
@@ -732,7 +739,7 @@ else
 
 
     print '<br>';
-
+    /*
 
     // Identifiants de la societe (country-specific)
     print '<form name="formsoc" method="post">';
@@ -837,7 +844,9 @@ else
         print '</td></tr>';
     }
 
+*/
     // TVA
+    /*
     $var=!$var;
     print '<tr '.$bc[$var].'><td>'.$langs->trans("VATIntra").'</td>';
     print '<td>';
@@ -877,10 +886,11 @@ else
 
     print '</table>';
     print '</form>';
-
+    */
     /*
      *  Debut d'annee fiscale
      */
+    /*
     print '<br>';
     print '<table class="noborder" width="100%">';
     print '<tr class="liste_titre">';
@@ -894,10 +904,11 @@ else
     print dol_print_date(dol_mktime(12,0,0,$monthstart,1,2000,1),'%B','gm') . '</td></tr>';
 
     print "</table>";
-
+    */
     /*
      *  Options fiscale
      */
+    /*
     print '<br>';
     print '<table class="noborder" width="100%">';
     print '<tr class="liste_titre">';
@@ -925,11 +936,12 @@ else
     print "</td></tr>\n";
 
     print "</table>";
-
+    */
 
     /*
      *  Local Taxes
      */
+    /*
     if ($mysoc->useLocalTax(1))
     {
         // Local Tax 1
@@ -996,7 +1008,7 @@ else
 
         print "</table>";
     }
-
+*/
 
     // Actions buttons
     print '<div class="tabsAction">';

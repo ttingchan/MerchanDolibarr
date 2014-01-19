@@ -117,11 +117,12 @@ $fontsizesmaller=empty($conf->dol_optimize_smallscreen)?'11':'14';
 // Eldy colors
 if (empty($conf->global->THEME_ELDY_ENABLE_PERSONALIZED))
 {
-	$conf->global->THEME_ELDY_TOPMENU_BACK1='93,59,120';    // topmenu
+    $conf->global->THEME_ELDY_TOPMENU_BACK1='93,59,120';    // topmenu
     $conf->global->THEME_ELDY_TOPMENU_BACK2='236,236,236';
-	$conf->global->THEME_ELDY_VERMENU_BACK1='255,255,255';    // vmenu
-    $conf->global->THEME_ELDY_VERMENU_BACK1b='230,232,232';   // vmenu (not menu)
-    $conf->global->THEME_ELDY_VERMENU_BACK2='240,240,240';
+    $conf->global->THEME_ELDY_VERMENU_BACK1='93,59,120';    // vmenu
+    $conf->global->THEME_ELDY_VERMENU_BACK1b='93,59,120';   // vmenu (not menu)
+    //!
+    $conf->global->THEME_ELDY_VERMENU_BACK2='93,59,120';
     $conf->global->THEME_ELDY_BACKTITLE1='93,59,120';       // title of arrays
     $conf->global->THEME_ELDY_BACKTITLE2='230,230,230';
     $conf->global->THEME_ELDY_BACKTABCARD2='210,210,210';     // card
@@ -241,7 +242,7 @@ body {
 
 a:link, a:visited, a:hover, a:active { font-family: <?php print $fontlist ?>; font-weight: bold; color: #310f33; text-decoration: none;  }
 
-a:hover { text-decoration: underline; color: #000000;}
+a:hover { text-decoration: underline; color: #310f33;}
 
 <?php if (empty($dol_use_jmobile)) { ?>
 
@@ -252,8 +253,9 @@ input:focus, textarea:focus, button:focus, select:focus {
 input, input.flat, textarea, textarea.flat, form.flat select, select.flat {
     font-size: <?php print $fontsize ?>px;
 	font-family: <?php print $fontlist ?>;
-	background: #FDFDFD;
-    border: 1px solid #C0C0C0;
+	background: #e6e6fa;
+        border-style:solid;
+    border-color: #fff0f5;
     /*padding: 1px 1px 1px 1px; */
     margin: 0px 0px 0px 0px;
 }
@@ -310,27 +312,34 @@ fieldset { border: 1px solid #AAAAAA !important; box-shadow: 2px 2px 3px #DDD; }
 
 .button {
     font-family: <?php print $fontlist ?>;
-	background-image: url(<?php echo $img_button ?>);
-	background-position: bottom;
-    border: 1px solid #C0C0C0;
-	padding: 0.1em 0.7em;
-	margin: 0em 0.5em;
-    -moz-border-radius:0px 5px 0px 5px;
-	-webkit-border-radius:0px 5px 0px 5px;
-	border-radius:0px 5px 0px 5px;
-    -moz-box-shadow: 2px 2px 3px #DDD;
-    -webkit-box-shadow: 2px 2px 3px #DDD;
-    box-shadow: 2px 2px 3px #DDD;
+    font-weight:bold;
+    color:#fff;
+    background-color: #532371;
+    background-position: bottom;
+    border: none;
+    padding: 0.1em 0.7em;
+    margin: 0em 0.5em;
+    -moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
 }
 .button:focus  {
     font-family: <?php print $fontlist ?>;
-	color: #222244;
-	background-image: url(<?php echo $img_button ?>);
-	background-position: bottom;
-    border: 1px solid #C0C0C0;
+    font-weight:bold;
+    color:#fff;
+    background-color: #532371;
+    background-position: bottom;
+    border: none;
+    padding: 0.1em 0.7em;
+    margin: 0em 0.5em;
+    -moz-border-radius: 5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
 }
 .button:hover   {
-	background: #dee7ec;
+	background-color: #532371;
+        color:yellow;
+        font-weight:bold;
 }
 .button:disabled {
 	background: #ddd;
@@ -809,9 +818,13 @@ foreach($mainmenuusedarray as $val)
 
 /* Login */
 
+.loginfield {
+color: white;
+}
+
 .bodylogin
 {
-	background: #ffffff url(<?php echo $img_head; ?>) 0 0 no-repeat;
+	background: #310f33;
 }
 form#login {
 	margin-top: <?php echo $dol_optimize_smallscreen?'30':'60' ?>px;
@@ -835,17 +848,14 @@ form#login {
 	padding-top:12px;
 	padding-bottom:12px;
 	max-width: 540px;
-	border: 1px solid #C0C0C0;
-	background-color: #E0E0E0;
 
-    -moz-box-shadow: 3px 3px 4px #DDD;
-    -webkit-box-shadow: 3px 3px 4px #DDD;
-    box-shadow: 3px 3px 4px #DDD;
+	background-color: #310f33;
+
 
 	border-radius: 8px;
-	border:solid 1px rgba(168,168,168,.4);
+	border:none;
 	border-top:solid 1px f8f8f8;
-	background-color: #f8f8f8;
+
 	background-image: -o-linear-gradient(top, rgba(250,250,250,.6) 0%, rgba(192,192,192,.3) 100%);
 	background-image: -moz-linear-gradient(top, rgba(250,250,250,.6) 0%, rgba(192,192,192,.3) 100%);
 	background-image: -webkit-linear-gradient(top, rgba(250,250,250,.6) 0%, rgba(192,192,192,.3) 100%);
@@ -1500,50 +1510,46 @@ div.divButAction { margin-bottom: 1.4em; }
 .butAction, .butAction:link, .butAction:visited, .butAction:hover, .butAction:active, .butActionDelete, .butActionDelete:link, .butActionDelete:visited, .butActionDelete:hover, .butActionDelete:active {
 	font-family: <?php print $fontlist ?>;
 	font-weight: bold;
-	background: white;
-	border: 1px solid #8CACBB;
-	color: #434956;
+	background: #532371;
+	border: none;
+	color: white;
 	text-decoration: none;
 	white-space: nowrap;
 	padding: 0.4em <?php echo ($dol_optimize_smallscreen?'0.4':'0.7'); ?>em;
 	margin: 0em <?php echo ($dol_optimize_smallscreen?'0.7':'0.9'); ?>em;
-    -moz-border-radius:0px 5px 0px 5px;
-	-webkit-border-radius:0px 5px 0px 5px;
-	border-radius:0px 5px 0px 5px;
-    -moz-box-shadow: 2px 2px 3px #DDD;
-    -webkit-box-shadow: 2px 2px 3px #DDD;
-    box-shadow: 2px 2px 3px #DDD;
+    -moz-border-radius: 5px;
+	-webkit-border-radius:5px;
+	border-radius: 5px;
+
 }
 
 .butAction:hover   {
-	background: #dee7ec;
+	color:yellow
 }
 
 .butActionDelete, .butActionDelete:link, .butActionDelete:visited, .butActionDelete:hover, .butActionDelete:active {
-	border: 1px solid #997777;
+	;
 }
 
 .butActionDelete:hover {
-	background: #FFe7ec;
+	;
 }
 
 .butActionRefused {
 	font-family: <?php print $fontlist ?> !important;
 	font-weight: bold !important;
-	background: white !important;
-	border: 1px solid #AAAAAA !important;
+	background: grey !important;
+	border: none;
 	color: #AAAAAA !important;
 	text-decoration: none !important;
 	white-space: nowrap !important;
 	cursor: not-allowed;
 	padding: 0.4em 0.7em;
 	margin: 0em 0.7em;
-    -moz-border-radius:0px 5px 0px 5px;
-	-webkit-border-radius:0px 5px 0px 5px;
-	border-radius:0px 5px 0px 5px;
-    -moz-box-shadow: 3px 3px 4px #DDD;
-    -webkit-box-shadow: 3px 3px 4px #DDD;
-    box-shadow: 3px 3px 4px #DDD;
+    -moz-border-radius:5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+
 }
 
 <?php if (! empty($conf->global->MAIN_BUTTON_HIDE_UNAUTHORIZED)) { ?>
