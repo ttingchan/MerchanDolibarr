@@ -98,13 +98,14 @@ $error=$hookmanager->error; $errors=$hookmanager->errors;
 if (empty($reshook))
 {
     // Type
+    /*
     if ($action ==	'setfk_product_type' && $user->rights->produit->creer)
     {
     	$result = $object->setValueFrom('fk_product_type', GETPOST('fk_product_type'));
     	header("Location: ".$_SERVER['PHP_SELF']."?id=".$object->id);
     	exit;
     }
-
+    */
     // Barcode type
     if ($action ==	'setfk_barcode_type' && $user->rights->barcode->creer)
     {
@@ -161,7 +162,7 @@ if (empty($reshook))
             $object->ref                = $ref;
             $object->libelle            = GETPOST('libelle');
             $object->price_base_type    = GETPOST('price_base_type');
-
+            /*
             if ($object->price_base_type == 'TTC')
             	$object->price_ttc = GETPOST('price');
             else
@@ -172,8 +173,8 @@ if (empty($reshook))
             	$object->price_min = GETPOST('price_min');
 
             $object->tva_tx             = str_replace('*','',GETPOST('tva_tx'));
-            $object->tva_npr            = preg_match('/\*/',GETPOST('tva_tx'))?1:0;
-
+            $object->tva_npr            = preg_match('/\*///',GETPOST('tva_tx'))?1:0;
+            
             // local taxes.
             $object->localtax1_tx 			= get_localtax($object->tva_tx,1);
             $object->localtax2_tx 			= get_localtax($object->tva_tx,2);
@@ -202,6 +203,7 @@ if (empty($reshook))
             $object->hidden             	= GETPOST('hidden')=='yes'?1:0;
 
             // MultiPrix
+            /*
             if (! empty($conf->global->PRODUIT_MULTIPRICES))
             {
                 for($i=2;$i<=$conf->global->PRODUIT_MULTIPRICES_LIMIT;$i++)
@@ -217,7 +219,7 @@ if (empty($reshook))
                     }
                 }
             }
-
+*/
             // Fill array 'array_options' with data from add form
         	$ret = $extrafields->setOptionalsFromPost($extralabels,$object);
 
@@ -577,13 +579,14 @@ if (empty($reshook))
         $price_base_type = $object->price_base_type;
 
         // If multiprice
+        /*
         if ($conf->global->PRODUIT_MULTIPRICES && $soc->price_level)
         {
             $pu_ht = $object->multiprices[$soc->price_level];
             $pu_ttc = $object->multiprices_ttc[$soc->price_level];
             $price_base_type = $object->multiprices_base_type[$soc->price_level];
         }
-
+        */
         // On reevalue prix selon taux tva car taux tva transaction peut etre different
         // de ceux du produit par defaut (par exemple si pays different entre vendeur et acheteur).
         if ($tva_tx != $object->tva_tx)
@@ -641,7 +644,7 @@ if (GETPOST("type") == '0') $helpurl='EN:Module_Products|FR:Module_Produits|ES:M
 if (GETPOST("type") == '1')	$helpurl='EN:Module_Services_En|FR:Module_Services|ES:M&oacute;dulo_Servicios';
 
 if (isset($_GET['type'])) $title = $langs->trans('CardProduct'.GETPOST('type'));
-else $title = $langs->trans('ProductServiceCard');
+else $title = $langs->trans('ServiceCard');
 
 llxHeader('', $title, $helpurl);
 
@@ -699,29 +702,32 @@ else
         $tmpcode='';
 		if (! empty($modCodeProduct->code_auto))
 			$tmpcode=$modCodeProduct->getNextValue($object,$type);
-        print '<td class="fieldrequired" width="20%">'.$langs->trans("Ref").'</td><td><input name="ref" size="40" maxlength="128" value="'.dol_escape_htmltag(GETPOST('ref')?GETPOST('ref'):$tmpcode).'">';
+        print '<td class="fieldrequired" width="20%">'.$langs->trans("Name").'</td><td><input name="ref" size="40" maxlength="128" value="'.dol_escape_htmltag(GETPOST('ref')?GETPOST('ref'):$tmpcode).'">';
         if ($_error)
         {
-            print $langs->trans("RefAlreadyExists");
+            print $langs->trans("NameAlreadyExists");
         }
         print '</td></tr>';
 
         // Label
-        print '<tr><td class="fieldrequired">'.$langs->trans("Label").'</td><td><input name="libelle" size="40" maxlength="255" value="'.dol_escape_htmltag(GETPOST('libelle')).'"></td></tr>';
+        print '<tr><td class="fieldrequired">'.$langs->trans("Universe").'</td><td><input name="libelle" size="40" maxlength="255" value="'.dol_escape_htmltag(GETPOST('libelle')).'"></td></tr>';
 
         // On sell
+        /*
         print '<tr><td class="fieldrequired">'.$langs->trans("Status").' ('.$langs->trans("Sell").')</td><td>';
         $statutarray=array('1' => $langs->trans("OnSell"), '0' => $langs->trans("NotOnSell"));
         print $form->selectarray('statut',$statutarray,GETPOST('statut'));
         print '</td></tr>';
-
+        */
         // To buy
+        /*
         print '<tr><td class="fieldrequired">'.$langs->trans("Status").' ('.$langs->trans("Buy").')</td><td>';
         $statutarray=array('1' => $langs->trans("ProductStatusOnBuy"), '0' => $langs->trans("ProductStatusNotOnBuy"));
         print $form->selectarray('statut_buy',$statutarray,GETPOST('statut_buy"'));
         print '</td></tr>';
-
+        */
         // Stock min level
+        /*
         if ($type != 1 && ! empty($conf->stock->enabled))
         {
             print '<tr><td>'.$langs->trans("StockLimit").'</td><td>';
@@ -737,7 +743,7 @@ else
             print '<input name="seuil_stock_alerte" type="hidden" value="0">';
             print '<input name="desiredstock" type="hidden" value="0">';
         }
-
+        */
         // Description (used in invoice, propal...)
         print '<tr><td valign="top">'.$langs->trans("Description").'</td><td>';
 
@@ -886,12 +892,13 @@ else
             print '<table class="border allwidth">';
 
             // Ref
-            print '<tr><td width="15%" class="fieldrequired">'.$langs->trans("Ref").'</td><td colspan="2"><input name="ref" size="40" maxlength="128" value="'.$object->ref.'"></td></tr>';
+            print '<tr><td width="15%" class="fieldrequired">'.$langs->trans("Name").'</td><td colspan="2"><input name="ref" size="40" maxlength="128" value="'.$object->ref.'"></td></tr>';
 
             // Label
-            print '<tr><td class="fieldrequired">'.$langs->trans("Label").'</td><td colspan="2"><input name="libelle" size="40" maxlength="255" value="'.$object->libelle.'"></td></tr>';
+            print '<tr><td class="fieldrequired">'.$langs->trans("Universe").'</td><td colspan="2"><input name="libelle" size="40" maxlength="255" value="'.$object->libelle.'"></td></tr>';
 
             // Status
+            /*
             print '<tr><td class="fieldrequired">'.$langs->trans("Status").' ('.$langs->trans("Sell").')</td><td colspan="2">';
             print '<select class="flat" name="statut">';
             if ($object->status)
@@ -906,8 +913,9 @@ else
             }
             print '</select>';
             print '</td></tr>';
-
+            */
             // To Buy
+            /*
             print '<tr><td class="fieldrequired">'.$langs->trans("Status").' ('.$langs->trans("Buy").')</td><td colspan="2">';
             print '<select class="flat" name="statut_buy">';
             if ($object->status_buy)
@@ -932,7 +940,7 @@ else
 
             print "</td></tr>";
             print "\n";
-
+            */
             // Nature
             if($object->type!=1)
             {
@@ -1047,14 +1055,14 @@ else
             print '<table class="border" width="100%"><tr>';
 
             // Ref
-            print '<td width="15%">'.$langs->trans("Ref").'</td><td colspan="'.(2+(($showphoto||$showbarcode)?1:0)).'">';
+            print '<td width="15%">'.$langs->trans("Name").'</td><td colspan="'.(2+(($showphoto||$showbarcode)?1:0)).'">';
             print $form->showrefnav($object,'ref','',1,'ref');
             print '</td>';
 
             print '</tr>';
 
             // Label
-            print '<tr><td>'.$langs->trans("Label").'</td><td colspan="2">'.$object->libelle.'</td>';
+            print '<tr><td>'.$langs->trans("Universe").'</td><td colspan="2">'.$object->libelle.'</td>';
 
             $nblignes=8;
             if (! empty($conf->produit->enabled) && ! empty($conf->service->enabled)) $nblignes++;
@@ -1142,15 +1150,19 @@ else
             print '</td></tr>';
 
             // Status (to sell)
+            /*
             print '<tr><td>'.$langs->trans("Status").' ('.$langs->trans("Sell").')</td><td colspan="2">';
             print $object->getLibStatut(2,0);
             print '</td></tr>';
+             * *、
+             */
 
             // Status (to buy)
+            /*
             print '<tr><td>'.$langs->trans("Status").' ('.$langs->trans("Buy").')</td><td colspan="2">';
             print $object->getLibStatut(2,1);
             print '</td></tr>';
-
+            */
             // Description
             print '<tr><td valign="top">'.$langs->trans("Description").'</td><td colspan="2">'.(dol_textishtml($object->description)?$object->description:dol_nl2br($object->description,1,true)).'</td></tr>';
 
@@ -1439,6 +1451,7 @@ if ($object->id && ($action == '' || $action == 'view') && $object->status)
     }
 
     // Factures
+    /*
     if (! empty($conf->facture->enabled) && $user->rights->facture->creer)
     {
     	$invoice = new Facture($db);
@@ -1491,6 +1504,8 @@ if ($object->id && ($action == '' || $action == 'view') && $object->status)
         print '</table>';
         print '<br>';
     }
+     * (
+     */
 }
 
 

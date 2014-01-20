@@ -218,26 +218,42 @@ if ($resql)
 	}
 	if (strval($viewstatut) == '0')
 	$title.=' - '.$langs->trans('StatusOrderDraftShort');
-	if ($viewstatut == 1)
+	
+        /*
+         * if ($viewstatut == 1)
 	$title.=' - '.$langs->trans('StatusOrderValidatedShort');
-	if ($viewstatut == 2)
+         * 
+         */
+	/*
+        if ($viewstatut == 2)
 	$title.=' - '.$langs->trans('StatusOrderOnProcessShort');
+         * 
+         */
 	if ($viewstatut == 3)
 	$title.=' - '.$langs->trans('StatusOrderToBillShort');
-	if ($viewstatut == 4)
+	/*
+        if ($viewstatut == 4)
 	$title.=' - '.$langs->trans('StatusOrderProcessedShort');
+         * 
+         */
 	if ($viewstatut == -1)
 	$title.=' - '.$langs->trans('StatusOrderCanceledShort');
+        /*
 	if ($viewstatut == -2)
 	$title.=' - '.$langs->trans('StatusOrderToProcessShort');
+         * 
+         */
 	if ($viewstatut == -3)
 	$title.=' - '.$langs->trans('StatusOrderValidated').', '.(empty($conf->expedition->enabled)?'':$langs->trans("StatusOrderSent").', ').$langs->trans('StatusOrderToBill');
 
 	$param='&socid='.$socid.'&viewstatut='.$viewstatut;
 	if ($ordermonth)      $param.='&ordermonth='.$ordermonth;
 	if ($orderyear)       $param.='&orderyear='.$orderyear;
+        /*
 	if ($deliverymonth)   $param.='&deliverymonth='.$deliverymonth;
 	if ($deliveryyear)    $param.='&deliveryyear='.$deliveryyear;
+         * 
+         */
 	if ($sref)            $param.='&sref='.$sref;
 	if ($snom)            $param.='&snom='.$snom;
 	if ($sref_client)     $param.='&sref_client='.$sref_client;
@@ -283,8 +299,8 @@ if ($resql)
 	print_liste_field_titre($langs->trans('RefCustomerOrder'),$_SERVER["PHP_SELF"],'c.ref_client','',$param,'',$sortfield,$sortorder);
 	print_liste_field_titre($langs->trans('Company'),$_SERVER["PHP_SELF"],'s.nom','',$param,'',$sortfield,$sortorder);
 	print_liste_field_titre($langs->trans('OrderDate'),$_SERVER["PHP_SELF"],'c.date_commande','',$param, 'align="right"',$sortfield,$sortorder);
-	print_liste_field_titre($langs->trans('DeliveryDate'),$_SERVER["PHP_SELF"],'c.date_livraison','',$param, 'align="right"',$sortfield,$sortorder);
-	print_liste_field_titre($langs->trans('AmountHT'),$_SERVER["PHP_SELF"],'c.total_ht','',$param, 'align="right"',$sortfield,$sortorder);
+	//print_liste_field_titre($langs->trans('DeliveryDate'),$_SERVER["PHP_SELF"],'c.date_livraison','',$param, 'align="right"',$sortfield,$sortorder);
+	//print_liste_field_titre($langs->trans('AmountHT'),$_SERVER["PHP_SELF"],'c.total_ht','',$param, 'align="right"',$sortfield,$sortorder);
 	print_liste_field_titre($langs->trans('Status'),$_SERVER["PHP_SELF"],'c.fk_statut','',$param,'align="right"',$sortfield,$sortorder);
 	print '</tr>';
 	print '<tr class="liste_titre">';
@@ -293,13 +309,12 @@ if ($resql)
 	print '</td>';
 	print '<td class="liste_titre" align="left">';
 	print '<input class="flat" type="text" size="6" name="sref_client" value="'.$sref_client.'">';
-	print '</td>';
+	print '</td>';       
 	print '<td class="liste_titre" align="left">';
 	print '<input class="flat" type="text" name="snom" value="'.$snom.'">';
 	print '</td>';
 	print '<td class="liste_titre">&nbsp;';
-	print '</td><td class="liste_titre">&nbsp;';
-	print '</td><td class="liste_titre">&nbsp;';
+
 	print '</td><td align="right" class="liste_titre">';
 	print '<input type="image" class="liste_titre" name="button_search" src="'.DOL_URL_ROOT.'/theme/'.$conf->theme.'/img/search.png"  value="'.dol_escape_htmltag($langs->trans("Search")).'" title="'.dol_escape_htmltag($langs->trans("Search")).'">';
 	print '</td></tr>';
@@ -380,6 +395,7 @@ if ($resql)
 		print '</td>';
 
 		// Delivery date
+                /*
 		$y = dol_print_date($db->jdate($objp->date_livraison),'%Y');
 		$m = dol_print_date($db->jdate($objp->date_livraison),'%m');
 		$ml = dol_print_date($db->jdate($objp->date_livraison),'%B');
@@ -389,10 +405,15 @@ if ($resql)
 		print ' <a href="'.$_SERVER['PHP_SELF'].'?deliveryyear='.$y.'&amp;deliverymonth='.$m.'">'.$ml.'</a>';
 		print ' <a href="'.$_SERVER['PHP_SELF'].'?deliveryyear='.$y.'">'.$y.'</a>';
 		print '</td>';
+                 * 
+                 */
 
 		// Amount HT
+                /*
 		print '<td align="right" class="nowrap">'.price($objp->total_ht).'</td>';
-
+                 * 
+                 */
+                
 		// Statut
 		print '<td align="right" class="nowrap">'.$generic_commande->LibStatut($objp->fk_statut,$objp->facturee,5).'</td>';
 

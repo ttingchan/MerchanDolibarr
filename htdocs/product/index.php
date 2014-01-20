@@ -45,11 +45,11 @@ $product_static = new Product($db);
  * View
  */
 
-$transAreaType = $langs->trans("ProductsAndServicesArea");
+$transAreaType = $langs->trans("ServicesArea");
 $helpurl='';
 if (! isset($_GET["type"]))
 {
-	$transAreaType = $langs->trans("ProductsAndServicesArea");
+	$transAreaType = $langs->trans("ServicesArea");
 	$helpurl='EN:Module_Products|FR:Module_Produits|ES:M&oacute;dulo_Productos';
 }
 if ((isset($_GET["type"]) && $_GET["type"] == 0) || empty($conf->service->enabled))
@@ -63,7 +63,7 @@ if ((isset($_GET["type"]) && $_GET["type"] == 1) || empty($conf->product->enable
 	$helpurl='EN:Module_Services_En|FR:Module_Services|ES:M&oacute;dulo_Servicios';
 }
 
-llxHeader("",$langs->trans("ProductsAndServices"),$helpurl);
+llxHeader("",$langs->trans("Services"),$helpurl);
 
 print_fiche_titre($transAreaType);
 
@@ -120,6 +120,7 @@ while ($objp = $db->fetch_object($result))
 
 print '<table class="noborder" width="100%">';
 print '<tr class="liste_titre"><td colspan="2">'.$langs->trans("Statistics").'</td></tr>';
+/*
 if (! empty($conf->product->enabled))
 {
 	$statProducts = "<tr $bc[0]>";
@@ -128,7 +129,7 @@ if (! empty($conf->product->enabled))
 	$statProducts.= "<tr $bc[1]>";
 	$statProducts.= '<td><a href="liste.php?type=0&amp;tosell=1">'.$langs->trans("ProductsOnSell").'</a></td><td align="right">'.round($prodser[0][1]).'</td>';
 	$statProducts.= "</tr>";
-}
+}*/
 if (! empty($conf->service->enabled))
 {
 	$statServices = "<tr $bc[0]>";
@@ -139,11 +140,12 @@ if (! empty($conf->service->enabled))
 	$statServices.= "</tr>";
 }
 $total=0;
-if ($type == '0')
+
+if ($type == '0');/*
 {
 	print $statProducts;
 	$total=round($prodser[0][0])+round($prodser[0][1]);
-}
+}*/
 else if ($type == '1')
 {
 	print $statServices;
@@ -186,7 +188,7 @@ if ($result)
 
 	if ($num > 0)
 	{
-		$transRecordedType = $langs->trans("LastModifiedProductsAndServices",$max);
+		$transRecordedType = $langs->trans("LastModifiedServices",$max);
 		if (isset($_GET["type"]) && $_GET["type"] == 0) $transRecordedType = $langs->trans("LastRecordedProducts",$max);
 		if (isset($_GET["type"]) && $_GET["type"] == 1) $transRecordedType = $langs->trans("LastRecordedServices",$max);
 
@@ -240,12 +242,15 @@ if ($result)
     			else print price($objp->price).' '.$langs->trans("HT");*/
     			print '</td>';
 			}
+                        /*
 			print '<td align="right" class="nowrap">';
 			print $product_static->LibStatut($objp->tosell,5,0);
 			print "</td>";
-            print '<td align="right" class="nowrap">';
+                         * *
+                         */
+           /* print '<td align="right" class="nowrap">';
             print $product_static->LibStatut($objp->tobuy,5,1);
-            print "</td>";
+            print "</td>";*/
 			print "</tr>\n";
 			$i++;
 		}
@@ -318,8 +323,8 @@ function activitytrim($product_type)
 			print '<br>';
 			print '<table class="noborder" width="75%">';
 
-			if ($product_type==0)
-				print '<tr class="liste_titre"><td  align=left>'.$langs->trans("ProductSellByQuarterHT").'</td>';
+			if ($product_type==0);
+				//print '<tr class="liste_titre"><td  align=left>'.$langs->trans("ProductSellByQuarterHT").'</td>';
 			else
 				print '<tr class="liste_titre"><td  align=left>'.$langs->trans("ServiceSellByQuarterHT").'</td>';
 			print '<td align=right>'.$langs->trans("Quarter1").'</td>';

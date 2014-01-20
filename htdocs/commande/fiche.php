@@ -452,12 +452,13 @@ else if ($action == 'set_ref_client' && $user->rights->commande->creer)
 {
 	$object->set_ref_client($user, GETPOST('ref_client'));
 }
-
+/*
 else if ($action == 'setremise' && $user->rights->commande->creer)
 {
 	$object->set_remise($user, GETPOST('remise'));
 }
-
+*/
+/*
 else if ($action == 'setabsolutediscount' && $user->rights->commande->creer)
 {
 	if (GETPOST('remise_id'))
@@ -472,6 +473,8 @@ else if ($action == 'setabsolutediscount' && $user->rights->commande->creer)
 		}
 	}
 }
+ * 
+ */
 
 else if ($action == 'setdate' && $user->rights->commande->creer)
 {
@@ -625,11 +628,14 @@ else if ($action == 'addline' && $user->rights->commande->creer)
 		setEventMessage($langs->trans("ErrorFieldRequired",$langs->transnoentitiesnoconv("UnitPriceHT")), 'errors');
 		$error++;
 	}
+        /*
 	if ($qty == '')
 	{
 		setEventMessage($langs->trans('ErrorFieldRequired', $langs->transnoentitiesnoconv('Qty')), 'errors');
 		$error = true;
 	}
+         * 
+         */
 	if (empty($idprod) && empty($product_desc))
 	{
 		setEventMessage($langs->trans('ErrorFieldRequired', $langs->transnoentitiesnoconv('Description')), 'errors');
@@ -1619,7 +1625,8 @@ if ($action == 'create' && $user->rights->commande->creer)
 		print '</td></tr>';
 
 		// Ligne info remises tiers
-		print '<tr><td>'.$langs->trans('Discounts').'</td><td colspan="2">';
+		//print '<tr><td>'.$langs->trans('Discounts').'</td><td colspan="2">';
+                /*
 		if ($soc->remise_percent) print $langs->trans("CompanyHasRelativeDiscount",$soc->remise_percent);
 		else print $langs->trans("CompanyHasNoRelativeDiscount");
 		print '. ';
@@ -1628,6 +1635,8 @@ if ($action == 'create' && $user->rights->commande->creer)
 		else print $langs->trans("CompanyHasNoAbsoluteDiscount");
 		print '.';
 		print '</td></tr>';
+                 * *
+                 */
 	}
 	// Date
 	print '<tr><td class="fieldrequired">'.$langs->trans('Start Date').'</td><td colspan="2">';
@@ -1692,13 +1701,14 @@ if ($action == 'create' && $user->rights->commande->creer)
 	}
 
 	// Template to use by default
+        /*
 	print '<tr><td>'.$langs->trans('Model').'</td>';
 	print '<td colspan="2">';
 	include_once DOL_DOCUMENT_ROOT.'/core/modules/commande/modules_commande.php';
 	$liste=ModelePDFCommandes::liste_modeles($db);
 	print $form->selectarray('model',$liste,$conf->global->COMMANDE_ADDON_PDF);
 	print "</td></tr>";
-
+        */
 
 	// Note publique
 	print '<tr>';
@@ -1745,9 +1755,10 @@ if ($action == 'create' && $user->rights->commande->creer)
 		$newclassname=$classname;
 		if ($newclassname=='Propal') $newclassname='CommercialProposal';
 		print '<tr><td>'.$langs->trans($newclassname).'</td><td colspan="2">'.$objectsrc->getNomUrl(1).'</td></tr>';
-		print '<tr><td>'.$langs->trans('TotalHT').'</td><td colspan="2">'.price($objectsrc->total_ht).'</td></tr>';
-		print '<tr><td>'.$langs->trans('TotalVAT').'</td><td colspan="2">'.price($objectsrc->total_tva)."</td></tr>";
-		if ($mysoc->localtax1_assuj=="1") //Localtax1 RE
+		//print '<tr><td>'.$langs->trans('TotalHT').'</td><td colspan="2">'.price($objectsrc->total_ht).'</td></tr>';
+		//print '<tr><td>'.$langs->trans('TotalVAT').'</td><td colspan="2">'.price($objectsrc->total_tva)."</td></tr>";
+		/*
+                if ($mysoc->localtax1_assuj=="1") //Localtax1 RE
 		{
 			print '<tr><td>'.$langs->transcountry("AmountLT1",$mysoc->country_code).'</td><td colspan="2">'.price($objectsrc->total_localtax1)."</td></tr>";
 		}
@@ -1756,8 +1767,9 @@ if ($action == 'create' && $user->rights->commande->creer)
 		{
 			print '<tr><td>'.$langs->transcountry("AmountLT2",$mysoc->country_code).'</td><td colspan="2">'.price($objectsrc->total_localtax2)."</td></tr>";
 		}
-
-		print '<tr><td>'.$langs->trans('TotalTTC').'</td><td colspan="2">'.price($objectsrc->total_ttc)."</td></tr>";
+                */
+                
+		//print '<tr><td>'.$langs->trans('TotalTTC').'</td><td colspan="2">'.price($objectsrc->total_ttc)."</td></tr>";
 	}
 	else
 	{
@@ -1771,9 +1783,10 @@ if ($action == 'create' && $user->rights->commande->creer)
 			print '<tr><td colspan="3">';
 
 			print '<table class="noborder">';
-			print '<tr><td>'.$langs->trans('ProductsAndServices').'</td>';
+			print '<tr><td>'.$langs->trans('Services').'</td>';
+                        /*
 			print '<td>'.$langs->trans('Qty').'</td>';
-			print '<td>'.$langs->trans('ReductionShort').'</td>';
+			print '<td>'.$langs->trans('ReductionShort').'</td>';*/
 			print '</tr>';
 			for ($i = 1 ; $i <= $NBLINES ; $i++)
 			{
@@ -1784,8 +1797,8 @@ if ($action == 'create' && $user->rights->commande->creer)
 				else
 					print $form->select_produits('','idprod'.$i,'',$conf->product->limit_size);
 				print '</td>';
-				print '<td><input type="text" size="3" name="qty'.$i.'" value="1"></td>';
-				print '<td><input type="text" size="3" name="remise_percent'.$i.'" value="'.$soc->remise_percent.'">%</td></tr>';
+				//print '<td><input type="text" size="3" name="qty'.$i.'" value="1"></td>';
+				//print '<td><input type="text" size="3" name="remise_percent'.$i.'" value="'.$soc->remise_percent.'">%</td></tr>';
 			}
 
 			print '</table>';
@@ -1804,7 +1817,7 @@ if ($action == 'create' && $user->rights->commande->creer)
 	// Show origin lines
 	if (! empty($origin) && ! empty($originid) && is_object($objectsrc))
 	{
-		$title=$langs->trans('ProductsAndServices');
+		$title=$langs->trans('sServices');
 		print_titre($title);
 
 		print '<table class="noborder" width="100%">';
@@ -2038,10 +2051,11 @@ else
 		$addabsolutediscount='<a href="'.DOL_URL_ROOT.'/comm/remx.php?id='.$soc->id.'&backtopage='.urlencode($_SERVER["PHP_SELF"]).'?facid='.$object->id.'">'.$langs->trans("EditGlobalDiscounts").'</a>';
 		$addcreditnote='<a href="'.DOL_URL_ROOT.'/compta/facture.php?action=create&socid='.$soc->id.'&type=2&backtopage='.urlencode($_SERVER["PHP_SELF"]).'?facid='.$object->id.'">'.$langs->trans("AddCreditNote").'</a>';
 
+                /*
 		print '<tr><td>'.$langs->trans('Discounts').'</td><td colspan="3">';
 		if ($soc->remise_percent) print $langs->trans("CompanyHasRelativeDiscount",$soc->remise_percent);
 		else print $langs->trans("CompanyHasNoRelativeDiscount");
-		print '. ';
+		print '. ';*/
 		$absolute_discount=$soc->getAvailableDiscounts('','fk_facture_source IS NULL');
 		$absolute_creditnote=$soc->getAvailableDiscounts('','fk_facture_source IS NOT NULL');
 		$absolute_discount=price2num($absolute_discount,'MT');
@@ -2092,6 +2106,7 @@ else
 		print '</tr>';
                 
 		// Delivery date planed
+                /*
 		print '<tr><td height="10">';
 		print '<table class="nobordernopadding" width="100%"><tr><td>';
 		print $langs->trans('End Date');
@@ -2114,7 +2129,7 @@ else
 		}
 		print '</td>';
 		print '</tr>';
-                
+                */
                 /*
 		// Terms of payment
 		print '<tr><td height="10">';
@@ -2372,6 +2387,7 @@ else
 		/*
 		 * Form to add new line
 		 */
+                /*
 		if ($object->statut == 0 && $user->rights->commande->creer)
 		{
 			if ($action != 'editline')
@@ -2405,7 +2421,7 @@ else
 		print "</form>\n";
 
 		dol_fiche_end();
-
+                */
 
 		/*
 		 * Boutons actions

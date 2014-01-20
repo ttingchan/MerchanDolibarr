@@ -110,7 +110,7 @@ if (is_object($objcanvas) && $objcanvas->displayCanvasExists($action))
 }
 else
 {
-	$title=$langs->trans("ProductsAndServices");
+	$title=$langs->trans("Services");
 
 	if (isset($type))
 	{
@@ -118,6 +118,7 @@ else
 		{
 			$texte = $langs->trans("Services");
 		}
+                
 		else
 		{
 			$texte = $langs->trans("Products");
@@ -125,7 +126,7 @@ else
 	}
 	else
 	{
-		$texte = $langs->trans("ProductsAndServices");
+		$texte = $langs->trans("Services");
 	}
 
     $sql = 'SELECT DISTINCT p.rowid, p.ref, p.label, p.barcode, p.price, p.price_ttc, p.price_base_type,';
@@ -294,17 +295,17 @@ else
 
     		// Lignes des titres
     		print '<tr class="liste_titre">';
-    		print_liste_field_titre($langs->trans("Ref"), $_SERVER["PHP_SELF"], "p.ref",$param,"","",$sortfield,$sortorder);
-    		print_liste_field_titre($langs->trans("Label"), $_SERVER["PHP_SELF"], "p.label",$param,"","",$sortfield,$sortorder);
+    		print_liste_field_titre($langs->trans("Name"), $_SERVER["PHP_SELF"], "p.ref",$param,"","",$sortfield,$sortorder);
+    		print_liste_field_titre($langs->trans("Universe"), $_SERVER["PHP_SELF"], "p.label",$param,"","",$sortfield,$sortorder);
     		if (! empty($conf->barcode->enabled)) print_liste_field_titre($langs->trans("BarCode"), $_SERVER["PHP_SELF"], "p.barcode",$param,'','',$sortfield,$sortorder);
     		print_liste_field_titre($langs->trans("DateModification"), $_SERVER["PHP_SELF"], "p.tms",$param,"",'align="center"',$sortfield,$sortorder);
     		if (! empty($conf->service->enabled) && $type != 0) print_liste_field_titre($langs->trans("Duration"), $_SERVER["PHP_SELF"], "p.duration",$param,"",'align="center"',$sortfield,$sortorder);
-    		if (empty($conf->global->PRODUIT_MULTIPRICES)) print_liste_field_titre($langs->trans("SellingPrice"), $_SERVER["PHP_SELF"], "p.price",$param,"",'align="right"',$sortfield,$sortorder);
-    		if ($user->rights->fournisseur->supprimer) print '<td class="liste_titre" align="right">'.$langs->trans("BuyingPriceMinShort").'</td>';
-    		if (! empty($conf->stock->enabled) && $user->rights->stock->lire && $type != 1) print '<td class="liste_titre" align="right">'.$langs->trans("DesiredStock").'</td>';
-    		if (! empty($conf->stock->enabled) && $user->rights->stock->lire && $type != 1) print '<td class="liste_titre" align="right">'.$langs->trans("PhysicalStock").'</td>';
-    		print_liste_field_titre($langs->trans("Sell"), $_SERVER["PHP_SELF"], "p.tosell",$param,"",'align="center"',$sortfield,$sortorder);
-            print_liste_field_titre($langs->trans("Buy"), $_SERVER["PHP_SELF"], "p.tobuy",$param,"",'align="center"',$sortfield,$sortorder);
+    		//if (empty($conf->global->PRODUIT_MULTIPRICES)) print_liste_field_titre($langs->trans("SellingPrice"), $_SERVER["PHP_SELF"], "p.price",$param,"",'align="right"',$sortfield,$sortorder);
+    		//if ($user->rights->fournisseur->supprimer) print '<td class="liste_titre" align="right">'.$langs->trans("BuyingPriceMinShort").'</td>';
+    		//if (! empty($conf->stock->enabled) && $user->rights->stock->lire && $type != 1) print '<td class="liste_titre" align="right">'.$langs->trans("DesiredStock").'</td>';
+    		//if (! empty($conf->stock->enabled) && $user->rights->stock->lire && $type != 1) print '<td class="liste_titre" align="right">'.$langs->trans("PhysicalStock").'</td>';
+    		//print_liste_field_titre($langs->trans("Sell"), $_SERVER["PHP_SELF"], "p.tosell",$param,"",'align="center"',$sortfield,$sortorder);
+            //print_liste_field_titre($langs->trans("Buy"), $_SERVER["PHP_SELF"], "p.tobuy",$param,"",'align="center"',$sortfield,$sortorder);
             print '<td width="1%">&nbsp;</td>';
     		print "</tr>\n";
 
@@ -335,21 +336,24 @@ else
     		}
 
     		// Sell price
+                /*
             if (empty($conf->global->PRODUIT_MULTIPRICES))
             {
         		print '<td class="liste_titre">';
         		print '&nbsp;';
         		print '</td>';
             }
-
+            */
     		// Minimum buying Price
+                /*
     		if ($user->rights->fournisseur->supprimer) {
     			print '<td class="liste_titre">';
     			print '&nbsp;';
     			print '</td>';
     		}
-
+                */
     		// Stock
+                /*
     		if (! empty($conf->stock->enabled) && $user->rights->stock->lire && $type != 1)
     		{
     			print '<td class="liste_titre">';
@@ -360,15 +364,17 @@ else
     			print '&nbsp;';
     			print '</td>';
     		}
-
+                */
+                /*
     		print '<td align="center">';  		
             print $form->selectarray('tosell', array('0'=>$langs->trans('ProductStatusNotOnSellShort'),'1'=>$langs->trans('ProductStatusOnSellShort')),$tosell,1);
             print '</td >';
-            
+            */
+                /*
             print '<td align="center">';
             print $form->selectarray('tobuy', array('0'=>$langs->trans('ProductStatusNotOnBuyShort'),'1'=>$langs->trans('ProductStatusOnBuyShort')),$tobuy,1);
             print '</td>';
-
+            */
     		print '<td class="liste_titre" align="right">';
     		print '<input type="image" class="liste_titre" name="button_search" src="'.DOL_URL_ROOT.'/theme/'.$conf->theme.'/img/search.png" value="'.dol_escape_htmltag($langs->trans("Search")).'" title="'.dol_escape_htmltag($langs->trans("Search")).'">';
     		print '<input type="image" class="liste_titre" name="button_removefilter" src="'.DOL_URL_ROOT.'/theme/'.$conf->theme.'/img/searchclear.png" value="'.dol_escape_htmltag($langs->trans("Search")).'" title="'.dol_escape_htmltag($langs->trans("Search")).'">';
@@ -437,6 +443,7 @@ else
     			}
 
     			// Sell price
+                        /*
     			if (empty($conf->global->PRODUIT_MULTIPRICES))
     			{
     			    print '<td align="right">';
@@ -444,8 +451,9 @@ else
         			else print price($objp->price).' '.$langs->trans("HT");
         			print '</td>';
     			}
-
+                        */
     			// Better buy price
+                        /*
     			if ($user->rights->produit->creer) {
         			print  '<td align="right">';
         			if ($objp->minsellprice != '')
@@ -463,8 +471,9 @@ else
         			}
         			print '</td>';
     			}
-
+                        */
     			// Show stock
+                        /*
     			if (! empty($conf->stock->enabled) && $user->rights->stock->lire && $type != 1)
     			{
     				if ($objp->fk_product_type != 1)
@@ -484,13 +493,15 @@ else
     					print '<td>&nbsp;</td>';
     				}
     			}
-
+                        */
     			// Status (to buy)
+                        /*
     			print '<td align="center" class="nowrap">'.$product_static->LibStatut($objp->tosell,5,0).'</td>';
-
+                        */
                 // Status (to sell)
+                        /*
                 print '<td align="center" class="nowrap">'.$product_static->LibStatut($objp->tobuy,5,1).'</td>';
-
+*/
                 print '<td>&nbsp;</td>';
                 
                 print "</tr>\n";
