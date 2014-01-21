@@ -345,10 +345,12 @@ if ($resql)
             print '</td>';
 
             print '<td width="16" align="right" class="nobordernopadding hideonsmartphone">';
+            /*
             $filename=dol_sanitizeFileName($obj->ref);
             $filedir=$conf->commande->dir_output . '/' . dol_sanitizeFileName($obj->ref);
             $urlsource=$_SERVER['PHP_SELF'].'?id='.$obj->rowid;
             print $formfile->getDocumentsLink($commandestatic->element, $filename, $filedir);
+            */
             print '</td></tr></table>';
 
             print '</td>';

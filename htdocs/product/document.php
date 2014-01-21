@@ -116,13 +116,13 @@ if ($object->id)
 
     // Ref
     print '<tr>';
-    print '<td width="30%">'.$langs->trans("Ref").'</td><td colspan="3">';
+    print '<td width="30%">'.$langs->trans("Name").'</td><td colspan="3">';
 	print $form->showrefnav($object,'ref','',1,'ref');
     print '</td>';
     print '</tr>';
 
     // Label
-    print '<tr><td>'.$langs->trans("Label").'</td><td colspan="3">'.$object->libelle.'</td></tr>';
+    print '<tr><td>'.$langs->trans("Universe").'</td><td colspan="3">'.$object->libelle.'</td></tr>';
 
 	// Status (to sell)
 	print '<tr><td>'.$langs->trans("Status").' ('.$langs->trans("Sell").')</td><td>';

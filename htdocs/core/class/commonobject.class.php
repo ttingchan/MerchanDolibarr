@@ -2678,7 +2678,7 @@ abstract class CommonObject
     	$extralabelslines=$extrafieldsline->fetch_name_optionals_label($this->table_element_line);
 
     	// Use global variables + $dateSelector + $seller and $buyer
-    	include(DOL_DOCUMENT_ROOT.'/core/tpl/freeproductline_create.tpl.php');
+    	//include(DOL_DOCUMENT_ROOT.'/core/tpl/freeproductline_create.tpl.php');
     }
 
 
@@ -2744,43 +2744,43 @@ abstract class CommonObject
 		if (! empty($conf->global->MAIN_VIEW_LINE_NUMBER)) print '<td align="center" width="5">&nbsp;</td>';
 
 		// Description
-		print '<td>'.$langs->trans('Description').'</td>';
+		print '<td colspan="7">'.$langs->trans('Description').'</td>';
 
 		// VAT
-		print '<td align="right" width="50">'.$langs->trans('VAT').'</td>';
+		//print '<td align="right" width="50">'.$langs->trans('VAT').'</td>';
 
 		// Price HT
-		print '<td align="right" width="80">'.$langs->trans('PriceUHT').'</td>';
+		//print '<td align="right" width="80">'.$langs->trans('PriceUHT').'</td>';
 
-		if ($conf->global->MAIN_FEATURES_LEVEL > 1) print '<td align="right" width="80">&nbsp;</td>';
+		//if ($conf->global->MAIN_FEATURES_LEVEL > 1) print '<td align="right" width="80">&nbsp;</td>';
 
 		// Qty
-		print '<td align="right" width="50">'.$langs->trans('Qty').'</td>';
+		//print '<td align="right" width="50">'.$langs->trans('Qty').'</td>';
 
 		// Reduction short
-		print '<td align="right" width="50">'.$langs->trans('ReductionShort').'</td>';
+		//print '<td align="right" width="50">'.$langs->trans('ReductionShort').'</td>';
 
 		if (! empty($conf->margin->enabled) && empty($user->societe_id))
 		{
 			if ($conf->global->MARGIN_TYPE == "1")
-				print '<td align="right" width="80">'.$langs->trans('BuyingPrice').'</td>';
+		;//		print '<td align="right" width="80">'.$langs->trans('BuyingPrice').'</td>';
 			else
-				print '<td align="right" width="80">'.$langs->trans('CostPrice').'</td>';
+		;//		print '<td align="right" width="80">'.$langs->trans('CostPrice').'</td>';
 
 			if (! empty($conf->global->DISPLAY_MARGIN_RATES) && $user->rights->margins->liretous)
-				print '<td align="right" width="50">'.$langs->trans('MarginRate').'</td>';
+		;//		print '<td align="right" width="50">'.$langs->trans('MarginRate').'</td>';
 			if (! empty($conf->global->DISPLAY_MARK_RATES) && $user->rights->margins->liretous)
-				print '<td align="right" width="50">'.$langs->trans('MarkRate').'</td>';
+		;//		print '<td align="right" width="50">'.$langs->trans('MarkRate').'</td>';
 		}
 
 		// Total HT
-		print '<td align="right" width="50">'.$langs->trans('TotalHTShort').'</td>';
+		//print '<td align="right" width="50">'.$langs->trans('TotalHTShort').'</td>';
 
-		print '<td width="10"></td>';
+		//print '<td width="10"></td>';
 
-		print '<td width="10"></td>';
+		//print '<td width="10"></td>';
 
-		print '<td class="nowrap"></td>'; // No width to allow autodim
+		//print '<td class="nowrap"></td>'; // No width to allow autodim
 
 		print "</tr>\n";
 

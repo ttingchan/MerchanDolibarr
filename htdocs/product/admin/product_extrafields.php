@@ -97,7 +97,7 @@ $extrafields->fetch_name_optionals_label($elementtype);
 print "<table summary=\"listofattributes\" class=\"noborder\" width=\"100%\">";
 
 print '<tr class="liste_titre">';
-print '<td>'.$langs->trans("Label").'</td>';
+print '<td>'.$langs->trans("Universe").'</td>';
 print '<td>'.$langs->trans("AttributeCode").'</td>';
 print '<td>'.$langs->trans("Type").'</td>';
 print '<td align="right">'.$langs->trans("Size").'</td>';

@@ -689,7 +689,10 @@ else
         print '<form action="fiche.php" method="post">';
         print '<input type="hidden" name="token" value="'.$_SESSION['newtoken'].'">';
         print '<input type="hidden" name="action" value="add">';
+        print '<input type="hidden" name="statut" value="1">';
+        print '<input type="hidden" name="statut_buy" value="1">';
         print '<input type="hidden" name="type" value="'.$type.'">'."\n";
+        
 		if (! empty($modCodeProduct->code_auto))
 			print '<input type="hidden" name="code_auto" value="1">';
 
@@ -712,6 +715,7 @@ else
         // Label
         print '<tr><td class="fieldrequired">'.$langs->trans("Universe").'</td><td><input name="libelle" size="40" maxlength="255" value="'.dol_escape_htmltag(GETPOST('libelle')).'"></td></tr>';
 
+        
         // On sell
         /*
         print '<tr><td class="fieldrequired">'.$langs->trans("Status").' ('.$langs->trans("Sell").')</td><td>';
@@ -805,7 +809,7 @@ else
         /*
         print '<tr><td>'.$langs->trans("CountryOrigin").'</td><td>';
         print $form->select_country(GETPOST('country_id','int'),'country_id');
-        if ($user->admin) print info_admin($langs->trans("YouCanChangeValuesForThisListFromDictionnarySetup"),1);
+        if ($user->admin) ;
         print '</td></tr>';
         */
         
@@ -889,6 +893,8 @@ else
             print '<input type="hidden" name="action" value="update">';
             print '<input type="hidden" name="id" value="'.$object->id.'">';
             print '<input type="hidden" name="canvas" value="'.$object->canvas.'">';
+            print '<input type="hidden" name="statut" value="1">';
+            print '<input type="hidden" name="statut_buy" value="1">';
             print '<table class="border allwidth">';
 
             // Ref
@@ -1011,11 +1017,12 @@ else
             print '<tr><td>'.$langs->trans("CustomCode").'</td><td colspan="2"><input name="customcode" size="10" value="'.$object->customcode.'"></td></tr>';
 
             // Origin country
+            /*
             print '<tr><td>'.$langs->trans("CountryOrigin").'</td><td colspan="2">';
             print $form->select_country($object->country_id,'country_id');
-            if ($user->admin) print info_admin($langs->trans("YouCanChangeValuesForThisListFromDictionnarySetup"),1);
+            if ($user->admin) ;
             print '</td></tr>';
-
+*/
             // Other attributes
             $parameters=array('colspan' => ' colspan="2"');
             $reshook=$hookmanager->executeHooks('formObjectOptions',$parameters,$object,$action);    // Note that $action and $object may have been modified by hook
@@ -1084,6 +1091,7 @@ else
             print '</tr>';
 
             // Type
+            /*
             if (! empty($conf->produit->enabled) && ! empty($conf->service->enabled))
             {
             	// TODO change for compatibility with edit in place
@@ -1091,7 +1099,7 @@ else
                 print '<tr><td>'.$form->editfieldkey("Type",'fk_product_type',$object->type,$object,$user->rights->produit->creer||$user->rights->service->creer,$typeformat).'</td><td colspan="2">';
                 print $form->editfieldval("Type",'fk_product_type',$object->type,$object,$user->rights->produit->creer||$user->rights->service->creer,$typeformat);
                 print '</td></tr>';
-            }
+            }*/
 
             if ($showbarcode)
             {
@@ -1140,14 +1148,14 @@ else
             }
 
             // Accountancy sell code
-            print '<tr><td>'.$form->editfieldkey("ProductAccountancySellCode",'accountancy_code_sell',$object->accountancy_code_sell,$object,$user->rights->produit->creer||$user->rights->service->creer,'string').'</td><td colspan="2">';
-            print $form->editfieldval("ProductAccountancySellCode",'accountancy_code_sell',$object->accountancy_code_sell,$object,$user->rights->produit->creer||$user->rights->service->creer,'string');
-            print '</td></tr>';
+            //print '<tr><td>'.$form->editfieldkey("ProductAccountancySellCode",'accountancy_code_sell',$object->accountancy_code_sell,$object,$user->rights->produit->creer||$user->rights->service->creer,'string').'</td><td colspan="2">';
+            //print $form->editfieldval("ProductAccountancySellCode",'accountancy_code_sell',$object->accountancy_code_sell,$object,$user->rights->produit->creer||$user->rights->service->creer,'string');
+            //print '</td></tr>';
 
             // Accountancy buy code
-            print '<tr><td>'.$form->editfieldkey("ProductAccountancyBuyCode",'accountancy_code_buy',$object->accountancy_code_buy,$object,$user->rights->produit->creer||$user->rights->service->creer,'string').'</td><td colspan="2">';
-            print $form->editfieldval("ProductAccountancyBuyCode",'accountancy_code_buy',$object->accountancy_code_buy,$object,$user->rights->produit->creer||$user->rights->service->creer,'string');
-            print '</td></tr>';
+            //print '<tr><td>'.$form->editfieldkey("ProductAccountancyBuyCode",'accountancy_code_buy',$object->accountancy_code_buy,$object,$user->rights->produit->creer||$user->rights->service->creer,'string').'</td><td colspan="2">';
+            //print $form->editfieldval("ProductAccountancyBuyCode",'accountancy_code_buy',$object->accountancy_code_buy,$object,$user->rights->produit->creer||$user->rights->service->creer,'string');
+            //print '</td></tr>';
 
             // Status (to sell)
             /*
@@ -1242,7 +1250,7 @@ else
             print '<tr><td>'.$langs->trans("CustomCode").'</td><td colspan="2">'.$object->customcode.'</td>';
 
             // Origin country code
-            print '<tr><td>'.$langs->trans("CountryOrigin").'</td><td colspan="2">'.getCountry($object->country_id,0,$db).'</td>';
+            //print '<tr><td>'.$langs->trans("CountryOrigin").'</td><td colspan="2">'.getCountry($object->country_id,0,$db).'</td>';
 
             // Other attributes
             $parameters=array('colspan' => ' colspan="'.(2+(($showphoto||$showbarcode)?1:0)).'"');

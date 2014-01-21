@@ -241,8 +241,8 @@ if ($resql)
 
 	// Lignes des titres
 	print "<tr class=\"liste_titre\">";
-	print_liste_field_titre($langs->trans("Ref"),"reassort.php", "p.ref",$param,"","",$sortfield,$sortorder);
-	print_liste_field_titre($langs->trans("Label"),"reassort.php", "p.label",$param,"","",$sortfield,$sortorder);
+	print_liste_field_titre($langs->trans("Name"),"reassort.php", "p.ref",$param,"","",$sortfield,$sortorder);
+	print_liste_field_titre($langs->trans("Universe"),"reassort.php", "p.label",$param,"","",$sortfield,$sortorder);
 	if (! empty($conf->service->enabled) && $type == 1) print_liste_field_titre($langs->trans("Duration"),"reassort.php", "p.duration",$param,"",'align="center"',$sortfield,$sortorder);
 	print_liste_field_titre($langs->trans("MininumStock"),"reassort.php", "p.seuil_stock_alerte",$param,"",'align="right"',$sortfield,$sortorder);
 	print_liste_field_titre($langs->trans("DesiredStock"),"reassort.php", "p.desiredstock",$param,"",'align="right"',$sortfield,$sortorder);

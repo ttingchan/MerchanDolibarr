@@ -40,7 +40,7 @@ $statutarray=array('1' => $langs->trans("OnSell"), '0' => $langs->trans("NotOnSe
 <table class="border allwidth">
 
 <tr>
-<td class="fieldrequired" width="20%"><?php echo $langs->trans("Ref"); ?></td>
+<td class="fieldrequired" width="20%"><?php echo $langs->trans("Name"); ?></td>
 <td><input name="ref" size="40" maxlength="32" value="<?php echo $object->ref; ?>">
 <?php if ($_error == 1) echo $langs->trans("RefAlreadyExists"); ?>
 </td></tr>

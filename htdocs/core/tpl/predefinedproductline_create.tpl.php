@@ -33,7 +33,7 @@ if (! empty($conf->margin->enabled) && ! empty($object->element) && in_array($ob
 <!-- BEGIN PHP TEMPLATE predefinedproductline_create.tpl.php -->
 
 <tr class="liste_titre nodrag nodrop">
-	<td<?php echo (! empty($conf->global->MAIN_VIEW_LINE_NUMBER) ? ' colspan="4"' : ' colspan="3"'); ?>>
+	<td<?php echo (! empty($conf->global->MAIN_VIEW_LINE_NUMBER) ? ' colspan="5"' : ' colspan="5"'); ?>>
 	<?php
 	echo '<span class="hideonsmartphone">'.$langs->trans("AddNewLine").' - </span>';
 	if (! empty($conf->product->enabled) && empty($conf->service->enabled)) echo $langs->trans('RecordedProducts');
@@ -41,10 +41,9 @@ if (! empty($conf->margin->enabled) && ! empty($object->element) && in_array($ob
 	else echo $langs->trans('RecordedProductsAndServices');
 	?>
 	</td>
-	<td align="right"><?php echo $langs->trans('Qty'); ?></td>
-	<td align="right"><?php echo $langs->trans('ReductionShort'); ?></td>
+
 	<?php
-	$colspan = 4;
+	$colspan = 1;
 	if (! empty($usemargins))
 	{
 		?>
@@ -122,10 +121,10 @@ else {
 	?>
 	</td>
 
-	<td align="right"><input type="hidden" name="price_ht_predef"><input type="text" size="2" name="qty_predef" class="flat" value="1"></td>
-	<td align="right" class="nowrap"><input type="text" size="1" class="flat" name="remise_percent_predef" value="<?php echo $buyer->remise_percent; ?>"><span class="hideonsmartphone">%</span></td>
+	<td align="right"><input type="hidden" name="price_ht_predef"><input type="hidden" name="qty_predef" value="1"></td>
+	<td align="right" class="nowrap"><input type="hidden"  name="remise_percent_predef" value="0"><span class="hideonsmartphone"></span></td>
 	<?php
-	$colspan = 4;
+	$colspan = 1;
 	if (! empty($usemargins))
 	{
 		?>

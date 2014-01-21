@@ -106,13 +106,13 @@ if ($object->id)
 
 	// Reference
 	print '<tr>';
-	print '<td width="15%">'.$langs->trans("Ref").'</td><td colspan="2">';
+	print '<td width="15%">'.$langs->trans("Name").'</td><td colspan="2">';
 	print $form->showrefnav($object,'ref','',1,'ref');
 	print '</td>';
 	print '</tr>';
 
 	// Libelle
-	print '<tr><td>'.$langs->trans("Label").'</td><td colspan="2">'.$object->libelle.'</td>';
+	print '<tr><td>'.$langs->trans("Universe").'</td><td colspan="2">'.$object->libelle.'</td>';
 	print '</tr>';
 
 	// Status (to sell)

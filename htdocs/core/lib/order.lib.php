@@ -94,15 +94,17 @@ function commande_prepare_head($object)
 		$h++;
 	}
 
+        /*
 	require_once DOL_DOCUMENT_ROOT.'/core/lib/files.lib.php';
 	$upload_dir = $conf->commande->dir_output . "/" . dol_sanitizeFileName($object->ref);
 	$nbFiles = count(dol_dir_list($upload_dir,'files'));
+        
     $head[$h][0] = DOL_URL_ROOT.'/commande/document.php?id='.$object->id;
 	$head[$h][1] = $langs->trans('Documents');
 	if($nbFiles > 0) $head[$h][1].= ' ('.$nbFiles.')';
 	$head[$h][2] = 'documents';
 	$h++;
-
+*/
 	$head[$h][0] = DOL_URL_ROOT.'/commande/info.php?id='.$object->id;
 	$head[$h][1] = $langs->trans("Info");
 	$head[$h][2] = 'info';

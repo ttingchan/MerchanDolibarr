@@ -26,12 +26,12 @@ $object=$GLOBALS['object'];
 <table class="border allwidth">
 
 <tr>
-<td width="15%"><?php echo $langs->trans("Ref"); ?></td>
+<td width="15%"><?php echo $langs->trans("Name"); ?></td>
 <td colspan="2"><?php echo $object->ref; ?></td>
 </tr>
 
 <tr>
-<td><?php echo $langs->trans("Label") ?></td>
+<td><?php echo $langs->trans("Universe") ?></td>
 <td><?php echo $object->label; ?></td>
 
 <?php if ($object->photos) { ?>

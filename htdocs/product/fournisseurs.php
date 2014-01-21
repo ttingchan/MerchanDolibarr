@@ -221,13 +221,13 @@ if ($id || $ref)
 
 			// Reference
 			print '<tr>';
-			print '<td width="15%">'.$langs->trans("Ref").'</td><td colspan="2">';
+			print '<td width="15%">'.$langs->trans("Name").'</td><td colspan="2">';
 			print $form->showrefnav($product,'ref','',1,'ref');
 			print '</td>';
 			print '</tr>';
 
 			// Label
-			print '<tr><td>'.$langs->trans("Label").'</td><td colspan="2">'.$product->libelle.'</td></tr>';
+			print '<tr><td>'.$langs->trans("Universe").'</td><td colspan="2">'.$product->libelle.'</td></tr>';
 
 			// Minimum Price
 			print '<tr><td>'.$langs->trans("BuyingPriceMin").'</td>';

@@ -350,11 +350,15 @@ if ($resql)
 		print '</td>';
 
 		print '<td width="16" align="right" class="nobordernopadding hideonsmartphone">';
+                /*
 		$filename=dol_sanitizeFileName($objp->ref);
 		$filedir=$conf->commande->dir_output . '/' . dol_sanitizeFileName($objp->ref);
 		$urlsource=$_SERVER['PHP_SELF'].'?id='.$objp->rowid;
 		print $formfile->getDocumentsLink($generic_commande->element, $filename, $filedir);
-		print '</td>';
+		
+                 */ 
+                print '</td>';
+                 
 		print '</tr></table>';
 
 		print '</td>';

@@ -41,12 +41,12 @@ dol_htmloutput_errors($object->error,$object->errors);
 <table class="border allwidth">
 
 <tr>
-<td class="fieldrequired" width="20%"><?php echo $langs->trans("Ref"); ?></td>
+<td class="fieldrequired" width="20%"><?php echo $langs->trans("Name"); ?></td>
 <td><input name="ref" size="40" maxlength="32" value="<?php echo $object->ref; ?>">
 </td></tr>
 
 <tr>
-<td class="fieldrequired"><?php echo $langs->trans("Label"); ?></td>
+<td class="fieldrequired"><?php echo $langs->trans("Universe"); ?></td>
 <td><input name="libelle" size="40" value="<?php echo $object->label; ?>"></td>
 </tr>
 

@@ -566,7 +566,7 @@ class Form
             print '>'.$langs->trans("Service");
 
             print '</select>';
-            //if ($user->admin) print info_admin($langs->trans("YouCanChangeValuesForThisListFromDictionnarySetup"),1);
+            //if ($user->admin) ;
         }
         if (! $forceall && empty($conf->product->enabled) && ! empty($conf->service->enabled))
         {
@@ -656,7 +656,7 @@ class Form
         }
 
         print '</select>';
-        if ($user->admin) print info_admin($langs->trans("YouCanChangeValuesForThisListFromDictionnarySetup"),1);
+        if ($user->admin) ;
     }
 
 
@@ -1505,11 +1505,11 @@ class Form
 			else if ($objp->stock <= 0) $opt.= ' class="product_line_stock_too_low"';
         }
         $opt.= '>';
-        $opt.= $objp->ref.' - '.dol_trunc($label,32).' - ';
+        $opt.= $objp->ref.' - '.dol_trunc($label,32);//.' - ';
 
         $objRef = $objp->ref;
         if (! empty($filterkey) && $filterkey != '') $objRef=preg_replace('/('.preg_quote($filterkey).')/i','<strong>$1</strong>',$objRef,1);
-        $outval.=$objRef.' - '.dol_trunc($label,32).' - ';
+        $outval.=$objRef.' - '.dol_trunc($label,32);//.' - ';
 
         $found=0;
 
@@ -1534,13 +1534,13 @@ class Form
                     $found=1;
                     if ($objp2->price_base_type == 'HT')
                     {
-                        $opt.= price($objp2->price,1,$langs,0,0,-1,$conf->currency).' '.$langs->trans("HT");
-                        $outval.= price($objp2->price,0,$langs,0,0,-1,$conf->currency).' '.$langs->transnoentities("HT");
+                        $opt.= '';//price($objp2->price,1,$langs,0,0,-1,$conf->currency).' '.$langs->trans("HT");
+                        $outval.= '';//price($objp2->price,0,$langs,0,0,-1,$conf->currency).' '.$langs->transnoentities("HT");
                     }
                     else
                     {
-                        $opt.= price($objp2->price_ttc,1,$langs,0,0,-1,$conf->currency).' '.$langs->trans("TTC");
-                        $outval.= price($objp2->price_ttc,0,$langs,0,0,-1,$conf->currency).' '.$langs->transnoentities("TTC");
+                        $opt.= '';//price($objp2->price_ttc,1,$langs,0,0,-1,$conf->currency).' '.$langs->trans("TTC");
+                        $outval.= '';//price($objp2->price_ttc,0,$langs,0,0,-1,$conf->currency).' '.$langs->transnoentities("TTC");
                     }
                     $outprice_ht=price($objp2->price);
                     $outprice_ttc=price($objp2->price_ttc);
@@ -1596,13 +1596,13 @@ class Form
         {
             if ($objp->price_base_type == 'HT')
             {
-                $opt.= price($objp->price,1,$langs,0,0,-1,$conf->currency).' '.$langs->trans("HT");
-                $outval.= price($objp->price,0,$langs,0,0,-1,$conf->currency).' '.$langs->transnoentities("HT");
+                $opt.= '';//price($objp->price,1,$langs,0,0,-1,$conf->currency).' '.$langs->trans("HT");
+                $outval.= '';//price($objp->price,0,$langs,0,0,-1,$conf->currency).' '.$langs->transnoentities("HT");
             }
             else
             {
-                $opt.= price($objp->price_ttc,1,$langs,0,0,-1,$conf->currency).' '.$langs->trans("TTC");
-                $outval.= price($objp->price_ttc,0,$langs,0,0,-1,$conf->currency).' '.$langs->transnoentities("TTC");
+                $opt.= '';//price($objp->price_ttc,1,$langs,0,0,-1,$conf->currency).' '.$langs->trans("TTC");
+                $outval.= '';//price($objp->price_ttc,0,$langs,0,0,-1,$conf->currency).' '.$langs->transnoentities("TTC");
             }
             $outprice_ht=price($objp->price);
             $outprice_ttc=price($objp->price_ttc);
@@ -2096,7 +2096,7 @@ class Form
             print '</option>';
         }
         print '</select>';
-        if ($user->admin) print info_admin($langs->trans("YouCanChangeValuesForThisListFromDictionnarySetup"),1);
+        if ($user->admin) ;
     }
 
     /**
@@ -2176,7 +2176,7 @@ class Form
             print '</option>';
         }
         print '</select>';
-        if ($user->admin) print info_admin($langs->trans("YouCanChangeValuesForThisListFromDictionnarySetup"),1);
+        if ($user->admin) ;
     }
 
     /**
@@ -2252,7 +2252,7 @@ class Form
             print '</option>';
         }
         print '</select>';
-        if ($user->admin) print info_admin($langs->trans("YouCanChangeValuesForThisListFromDictionnarySetup"),1);
+        if ($user->admin) ;
     }
 
 
@@ -2307,7 +2307,7 @@ class Form
             print '</option>';
         }
         print '</select>';
-        if ($user->admin && ! $noadmininfo) print info_admin($langs->trans("YouCanChangeValuesForThisListFromDictionnarySetup"),1);
+        if ($user->admin && ! $noadmininfo) ;
     }
 
 
@@ -3221,7 +3221,7 @@ class Form
         	$out.= '</option>';
         }
         $out.= '</select>';
-        if ($user->admin) $out.= info_admin($langs->trans("YouCanChangeValuesForThisListFromDictionnarySetup"),1);
+        if ($user->admin) $out.= "";
         return $out;
     }
 

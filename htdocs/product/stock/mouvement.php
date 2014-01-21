@@ -321,7 +321,7 @@ if ($resql)
 
         // Label
         print '<tr>';
-        print '<td width="20%">'.$langs->trans("Label").'</td>';
+        print '<td width="20%">'.$langs->trans("Universe").'</td>';
         print '<td colspan="4">';
         print '<input type="text" name="label" size="40" value="">';
         print '</td>';

@@ -226,13 +226,13 @@ if ($id > 0 || $ref)
 
 		// Ref
 		print '<tr>';
-		print '<td width="30%">'.$langs->trans("Ref").'</td><td>';
+		print '<td width="30%">'.$langs->trans("Name").'</td><td>';
 		print $form->showrefnav($product,'ref','',1,'ref');
 		print '</td>';
 		print '</tr>';
 
 		// Label
-		print '<tr><td>'.$langs->trans("Label").'</td><td>'.$product->libelle.'</td>';
+		print '<tr><td>'.$langs->trans("Universe").'</td><td>'.$product->libelle.'</td>';
 		print '</tr>';
 
 		// Status (to sell)
@@ -410,7 +410,7 @@ if ($id > 0 || $ref)
 
 		// Label
 		print '<tr>';
-		print '<td width="20%">'.$langs->trans("Label").'</td>';
+		print '<td width="20%">'.$langs->trans("Universe").'</td>';
 		print '<td colspan="2">';
 		print '<input type="text" name="label" size="40" value="'.GETPOST("label").'">';
 		print '</td>';

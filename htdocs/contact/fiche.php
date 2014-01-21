@@ -482,7 +482,7 @@ else
             // Country
             print '<tr><td>'.$langs->trans("Country").'</td><td colspan="'.$colspan.'">';
             print $form->select_country((isset($_POST["country_id"])?$_POST["country_id"]:$object->country_id),'country_id');
-            if ($user->admin) print info_admin($langs->trans("YouCanChangeValuesForThisListFromDictionnarySetup"),1);
+            if ($user->admin) ;
             print '</td></tr>';
 
             // State
@@ -688,7 +688,7 @@ else
             // Country
             print '<tr><td>'.$langs->trans("Country").'</td><td colspan="2">';
             print $form->select_country(isset($_POST["country_id"])?$_POST["country_id"]:$object->country_id,'country_id');
-            if ($user->admin) print info_admin($langs->trans("YouCanChangeValuesForThisListFromDictionnarySetup"),1);
+            if ($user->admin) ;
             print '</td></tr>';
 
             // State

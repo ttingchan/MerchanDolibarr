@@ -65,7 +65,7 @@
 	{
 		if ($line->fk_product > 0) {
 
-			echo $form->textwithtooltip($text,$description,3,'','',$i,0,(!empty($line->fk_parent_line)?img_picto('', 'rightarrow'):''));
+			echo $form->textwithtooltip($text,$description,3,'','',$i,3,(!empty($line->fk_parent_line)?img_picto('', 'rightarrow'):''));
 
 			// Show range
 			echo get_date_range($line->date_start, $line->date_end);
@@ -83,7 +83,7 @@
 
 			if (! empty($line->label)) {
 				$text.= ' <strong>'.$line->label.'</strong>';
-				echo $form->textwithtooltip($text,dol_htmlentitiesbr($line->description),3,'','',$i,0,(!empty($line->fk_parent_line)?img_picto('', 'rightarrow'):''));
+				echo $form->textwithtooltip($text,dol_htmlentitiesbr($line->description),3,'','',$i,3,(!empty($line->fk_parent_line)?img_picto('', 'rightarrow'):''));
 			} else {
 				if (! empty($line->fk_parent_line)) echo img_picto('', 'rightarrow');
 				echo $text.' '.dol_htmlentitiesbr($line->description);
@@ -96,47 +96,7 @@
 	?>
 	</td>
 
-	<td align="right" class="nowrap"><?php $coldisplay++; ?><?php echo vatrate($line->tva_tx,'%',$line->info_bits); ?></td>
-
-	<td align="right" class="nowrap"><?php $coldisplay++; ?><?php echo price($line->subprice); ?></td>
-
-	<?php if ($conf->global->MAIN_FEATURES_LEVEL > 1) { ?>
-	<td align="right" class="nowrap"><?php $coldisplay++; ?>&nbsp;</td>
-	<?php } ?>
-
-	<td align="right" class="nowrap"><?php $coldisplay++; ?>
-	<?php if ((($line->info_bits & 2) != 2) && $line->special_code != 3) {
-			// I comment this because it shows info even when not required
-			// for example always visible on invoice but must be visible only if stock module on and stock decrease option is on invoice validation and status is not validated
-			// must also not be output for most entities (proposal, intervention, ...)
-			//if($line->qty > $line->stock) print img_picto($langs->trans("StockTooLow"),"warning", 'style="vertical-align: bottom;"')." ";
-			echo $line->qty;
-		} else echo '&nbsp;';	?>
-	</td>
-
-	<?php if (!empty($line->remise_percent) && $line->special_code != 3) { ?>
-	<td align="right"><?php $coldisplay++; ?><?php echo dol_print_reduction($line->remise_percent,$langs); ?></td>
-	<?php } else { ?>
-	<td><?php $coldisplay++; ?>&nbsp;</td>
-	<?php }
-
-  if (! empty($conf->margin->enabled) && empty($user->societe_id)) {
-	$rounding = min($conf->global->MAIN_MAX_DECIMALS_UNIT,$conf->global->MAIN_MAX_DECIMALS_TOT);
-  ?>
-  	<td align="right" class="nowrap"><?php $coldisplay++; ?><?php echo price($line->pa_ht); ?></td>
-  	<?php if (! empty($conf->global->DISPLAY_MARGIN_RATES) && $user->rights->margins->liretous) {?>
-  	  <td align="right" class="nowrap"><?php $coldisplay++; ?><?php echo (($line->pa_ht == 0)?'n/a':price($line->marge_tx, null, null, null, null, $rounding).'%'); ?></td>
-  	<?php
-  }
-  if (! empty($conf->global->DISPLAY_MARK_RATES) && $user->rights->margins->liretous) {?>
-  	  <td align="right" class="nowrap"><?php $coldisplay++; ?><?php echo price($line->marque_tx, null, null, null, null, $rounding).'%'; ?></td>
-  <?php } } ?>
-
-	<?php if ($line->special_code == 3)	{ ?>
-	<td align="right" class="nowrap"><?php $coldisplay++; ?><?php echo $langs->trans('Option'); ?></td>
-	<?php } else { ?>
-	<td align="right" class="nowrap"><?php $coldisplay++; ?><?php echo price($line->total_ht); ?></td>
-	<?php } ?>
+	
 
 	<?php if ($this->statut == 0  && $user->rights->$element->creer) { ?>
 	<td align="center"><?php $coldisplay++; ?>

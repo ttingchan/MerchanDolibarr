@@ -2387,7 +2387,7 @@ else
 		/*
 		 * Form to add new line
 		 */
-                /*
+                
 		if ($object->statut == 0 && $user->rights->commande->creer)
 		{
 			if ($action != 'editline')
@@ -2421,7 +2421,7 @@ else
 		print "</form>\n";
 
 		dol_fiche_end();
-                */
+                
 
 		/*
 		 * Boutons actions
@@ -2447,6 +2447,7 @@ else
 				{
 					print '<a class="butAction" href="'.DOL_URL_ROOT.'/comm/action/fiche.php?action=create&amp;origin='.$object->element.'&amp;originid='.$object->id.'&amp;socid='.$object->socid.'">'.$langs->trans("AddAction").'</a>';
 				}
+                                /*
 				// Send
 				if ($object->statut > 0)
 				{
@@ -2456,7 +2457,9 @@ else
 					}
 					else print '<div class="inline-block divButAction"><a class="butActionRefused" href="#">'.$langs->trans('SendByMail').'</a></div>';
 				}
-
+                                 
+                                 */
+/*
 				// Ship
 				$numshipping=0;
 				if (! empty($conf->expedition->enabled))
@@ -2484,7 +2487,9 @@ else
 						}
 					}
 				}
-
+ 
+ */
+/*
 				// Create intervention
 				if ($conf->ficheinter->enabled)
 				{
@@ -2502,14 +2507,14 @@ else
 						}
 					}
 				}
-
+*/
 				// Reopen a closed order
 				if ($object->statut == 3)
 				{
 					print '<div class="inline-block divButAction"><a class="butAction" href="'.$_SERVER['PHP_SELF'].'?id='.$object->id.'&amp;action=reopen">'.$langs->trans('ReOpen').'</a></div>';
 				}
 
-
+/*
 				// Create bill and Classify billed
 				if (! empty($conf->facture->enabled) && $object->statut > 0  && ! $object->billed)
 				{
@@ -2522,13 +2527,16 @@ else
 						print '<div class="inline-block divButAction"><a class="butAction" href="'.$_SERVER["PHP_SELF"].'?id='.$object->id.'&amp;action=classifybilled">'.$langs->trans("ClassifyBilled").'</a></div>';
 					}
 				}
+ 
+ */
 
+                                /*
 				// Set to shipped
 				if (($object->statut == 1 || $object->statut == 2) && $user->rights->commande->cloturer)
 				{
 					print '<div class="inline-block divButAction"><a class="butAction" href="'.$_SERVER["PHP_SELF"].'?id='.$object->id.'&amp;action=shipped">'.$langs->trans('ClassifyShipped').'</a></div>';
 				}
-
+*/
 				// Clone
 				if ($user->rights->commande->creer)
 				{
@@ -2576,7 +2584,7 @@ else
 			$urlsource=$_SERVER["PHP_SELF"]."?id=".$object->id;
 			$genallowed=$user->rights->commande->creer;
 			$delallowed=$user->rights->commande->supprimer;
-			$somethingshown=$formfile->show_documents('commande',$comref,$filedir,$urlsource,$genallowed,$delallowed,$object->modelpdf,1,0,0,28,0,'','','',$soc->default_lang);
+			//$somethingshown=$formfile->show_documents('commande',$comref,$filedir,$urlsource,$genallowed,$delallowed,$object->modelpdf,1,0,0,28,0,'','','',$soc->default_lang);
 
 			/*
 			 * Linked object block

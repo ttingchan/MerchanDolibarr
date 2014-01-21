@@ -101,11 +101,11 @@ if (! empty($conf->global->MAIN_VIEW_LINE_NUMBER)) {
 	?>
 	</td>
 
-	<td align="right"><?php $coldisplay++; ?><?php echo $form->load_tva('tva_tx',$line->tva_tx,$seller,$buyer,0,$line->info_bits,$line->product_type); ?></td>
+	<td align="right"><?php $coldisplay++; ?><input type="hidden" class="flat" size="8" id="price_ttc" name="tva_tx" value="0"></td>
 
-	<td align="right"><?php $coldisplay++; ?><input type="text" class="flat" size="8" id="price_ht" name="price_ht" value="<?php echo price($line->subprice,0,'',0); ?>"></td>
+	<td align="right"><?php $coldisplay++; ?><input type="hidden" class="flat" size="8" id="price_ht" name="price_ht" value="0"></td>
 	<?php if ($conf->global->MAIN_FEATURES_LEVEL > 1) { ?>
-	<td align="right"><?php $coldisplay++; ?><input type="text" class="flat" size="8" id="price_ttc" name="price_ttc" value="<?php echo price($pu_ttc,0,'',0); ?>"></td>
+	<td align="right"><?php $coldisplay++; ?><input type="hidden" class="flat" size="8" id="price_ttc" name="price_ttc" value="0"></td>
 	<?php } ?>
 
 	<td align="right"><?php $coldisplay++; ?>
@@ -115,7 +115,7 @@ if (! empty($conf->global->MAIN_VIEW_LINE_NUMBER)) {
 		// must also not be output for most entities (proposal, intervention, ...)
 		//if($line->qty > $line->stock) print img_picto($langs->trans("StockTooLow"),"warning", 'style="vertical-align: bottom;"')." ";
 	?>
-		<input size="3" type="text" class="flat" name="qty" value="<?php echo $line->qty; ?>">
+		<input size="3" type="hidden" class="flat" name="qty" value="1">
 	<?php } else { ?>
 		&nbsp;
 	<?php } ?>
@@ -123,7 +123,7 @@ if (! empty($conf->global->MAIN_VIEW_LINE_NUMBER)) {
 
 	<td align="right" nowrap><?php $coldisplay++; ?>
 	<?php if (($line->info_bits & 2) != 2) { ?>
-		<input size="1" type="text" class="flat" name="remise_percent" value="<?php echo $line->remise_percent; ?>">%
+		<input size="1" type="hidden" class="flat" name="remise_percent" value="0">
 	<?php } else { ?>
 		&nbsp;
 	<?php } ?>

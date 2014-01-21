@@ -145,7 +145,7 @@ if (! empty($conf->propal->enabled) && $user->rights->propal->lire)
 	{
 		print '<table class="noborder" width="100%">';
 		print '<tr class="liste_titre">';
-		print '<td colspan="3">'.$langs->trans("ProposalsDraft").'</td></tr>';
+		print '<td colspan="2">'.$langs->trans("ProposalsDraft").'</td></tr>';
 
 		$total = 0;
 		$num = $db->num_rows($resql);
@@ -169,7 +169,7 @@ if (! empty($conf->propal->enabled) && $user->rights->propal->lire)
 				$companystatic->canvas=$obj->canvas;
 				print $companystatic->getNomUrl(1,'customer',16);
 				print '</td>';
-				print '<td align="right" class="nowrap">'.price($obj->total_ht).'</td></tr>';
+				print '</tr>';
 				$i++;
 				$total += $obj->total_ht;
 			}
@@ -232,7 +232,7 @@ if (! empty($conf->commande->enabled) && $user->rights->commande->lire)
                 $companystatic->canvas=$obj->canvas;
 				print $companystatic->getNomUrl(1,'customer',16);
 				print '</td>';
-				print '<td align="right" class="nowrap">'.price($obj->total_ttc).'</td></tr>';
+				print '</tr>';
 				$i++;
 				$total += $obj->total_ttc;
 			}

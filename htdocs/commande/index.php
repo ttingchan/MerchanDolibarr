@@ -262,10 +262,13 @@ if ($resql)
 			print '</td>';
 
 			print '<td width="16" align="right" class="nobordernopadding hideonsmartphone">';
+                        /*
 			$filename=dol_sanitizeFileName($obj->ref);
 			$filedir=$conf->commande->dir_output . '/' . dol_sanitizeFileName($obj->ref);
 			$urlsource=$_SERVER['PHP_SELF'].'?id='.$obj->rowid;
 			print $formfile->getDocumentsLink($commandestatic->element, $filename, $filedir);
+                         */
+                         
 			print '</td></tr></table>';
 
 			print '</td>';
@@ -331,12 +334,16 @@ if (! empty($conf->commande->enabled))
 				print '</td>';
 
 				print '<td width="16" align="right" class="nobordernopadding hideonsmartphone">';
+                                /*
 				$filename=dol_sanitizeFileName($obj->ref);
 				$filedir=$conf->commande->dir_output . '/' . dol_sanitizeFileName($obj->ref);
 				$urlsource=$_SERVER['PHP_SELF'].'?id='.$obj->rowid;
 				print $formfile->getDocumentsLink($commandestatic->element, $filename, $filedir);
+                                 
+                                 */
 				print '</td></tr></table>';
 
+                            
 				print '</td>';
 
 				print '<td><a href="'.DOL_URL_ROOT.'/comm/fiche.php?socid='.$obj->socid.'">'.img_object($langs->trans("ShowCompany"),"company").' '.dol_trunc($obj->nom,24).'</a></td>';

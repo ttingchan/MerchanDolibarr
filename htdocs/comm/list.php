@@ -195,7 +195,8 @@ if ($result)
 	print_liste_field_titre($langs->trans("Zip"),$_SERVER["PHP_SELF"],"s.zip","",$param,"",$sortfield,$sortorder);
     print_liste_field_titre($langs->trans("Town"),$_SERVER["PHP_SELF"],"s.town","",$param,"",$sortfield,$sortorder);
 	print_liste_field_titre($langs->trans("CustomerCode"),$_SERVER["PHP_SELF"],"s.code_client","",$param,"",$sortfield,$sortorder);
-    print_liste_field_titre($langs->trans("AccountancyCode"),$_SERVER["PHP_SELF"],"s.code_compta","",$param,'align="left"',$sortfield,$sortorder);
+;
+//    print_liste_field_titre($langs->trans("AccountancyCode"),$_SERVER["PHP_SELF"],"s.code_compta","",$param,'align="left"',$sortfield,$sortorder);
 	print_liste_field_titre($langs->trans("DateCreation"),$_SERVER["PHP_SELF"],"datec","",$param,'align="right"',$sortfield,$sortorder);
     print_liste_field_titre($langs->trans("Status"),$_SERVER["PHP_SELF"],"s.status","",$param,'align="right"',$sortfield,$sortorder);
     print '<td class="liste_titre" width="1%">&nbsp;</td>';
@@ -217,10 +218,13 @@ if ($result)
 	print '<td class="liste_titre">';
     print '<input type="text" class="flat" name="search_town" value="'.$search_town.'" size="10">';
     print '</td>';
+    
 
+/*
     print '<td class="liste_titre">';
     print '<input type="text" class="flat" name="search_code" value="'.$search_code.'" size="10">';
     print '</td>';
+*/
 
     print '<td align="left" class="liste_titre">';
     print '<input type="text" class="flat" name="search_compta" value="'.$search_compta.'" size="10">';
@@ -265,7 +269,7 @@ if ($result)
 		print '<td>'.$obj->zip.'</td>';
         print '<td>'.$obj->town.'</td>';
         print '<td>'.$obj->code_client.'</td>';
-        print '<td>'.$obj->code_compta.'</td>';
+        //print '<td>'.$obj->code_compta.'</td>';
         print '<td align="right">'.dol_print_date($db->jdate($obj->datec),'day').'</td>';
         print '<td align="center">'.$thirdpartystatic->getLibStatut(3);
         print '</td>';
